@@ -45,12 +45,12 @@ export function PainPointsSection() {
             <div className="hidden md:flex md:flex-col md:items-center">
               {painPoints.map((_, index) => (
                 <React.Fragment key={`spine-${index}`}>
-                  <div className="flex h-32 items-center">
+                  {/* Container do bullet, com a mesma altura do card */}
+                  <div className="flex h-32 items-center justify-center">
                     <div className="h-3 w-3 rounded-full bg-blue-500/50 ring-4 ring-blue-500/10" />
                   </div>
-                  {index < painPoints.length - 1 && (
-                    <div className="h-full w-0.5 flex-grow bg-slate-800" />
-                  )}
+                  {/* Conector, com a mesma altura do gap (gap-4 -> h-4) */}
+                  {index < painPoints.length - 1 && <div className="h-4 w-0.5 bg-slate-800" />}
                 </React.Fragment>
               ))}
             </div>
