@@ -42,17 +42,21 @@ export function PainPointsSection() {
           {/* Timeline Container */}
           <div className="grid grid-cols-1 gap-x-12 md:grid-cols-[auto,1fr]">
             {/* Coluna da Espinha (Desktop) */}
-            <div className="hidden md:flex md:flex-col md:items-center">
-              {painPoints.map((_, index) => (
-                <React.Fragment key={`spine-${index}`}>
-                  {/* Container do bullet, com a mesma altura do card */}
-                  <div className="flex h-32 items-center justify-center">
-                    <div className="h-3 w-3 rounded-full bg-blue-500/50 ring-4 ring-blue-500/10" />
+            <div className="relative hidden md:block">
+              <div
+                className="absolute left-1/2 top-16 bottom-16 w-0.5 -translate-x-1/2 bg-slate-800"
+                aria-hidden="true"
+              />
+              <div className="relative flex h-full flex-col gap-4">
+                {painPoints.map((_, index) => (
+                  <div
+                    key={`bullet-container-${index}`}
+                    className="flex h-32 items-center justify-center"
+                  >
+                    <div className="h-3 w-3 rounded-full bg-blue-500 ring-4 ring-blue-500/10" />
                   </div>
-                  {/* Conector, com a mesma altura do gap (gap-4 -> h-4) */}
-                  {index < painPoints.length - 1 && <div className="h-4 w-0.5 bg-slate-800" />}
-                </React.Fragment>
-              ))}
+                ))}
+              </div>
             </div>
 
             {/* Coluna dos Blocos */}
