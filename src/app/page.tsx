@@ -143,10 +143,10 @@ export default function Home() {
             <div className="mt-8 lg:mt-0 lg:col-span-5 flex justify-center lg:justify-end">
               <div className="w-full max-w-[460px]">
                 <div className="relative overflow-hidden rounded-2xl bg-white/5 p-0 shadow-2xl shadow-blue-900/20">
-                  {/* imagem placeholder; substitua por foto do designer para retrato real */}
+                  {/* substituted designer photo */}
                   <img
-                    src="/window.svg"
-                    alt="Jorge Auad"
+                    src="/jorge-hero.png"
+                    alt="Retrato de Jorge Auad"
                     className="w-full h-[320px] object-cover object-center rounded-2xl"
                   />
                 </div>
@@ -447,7 +447,7 @@ export default function Home() {
           </div>
         </div>
         <div className="mt-6 text-center text-xs uppercase tracking-[0.3em] text-slate-500">
-----------
+          “VanguardIA — Inteligência Aplicada à Prosperidade.”
         </div>
       </footer>
 
