@@ -141,13 +141,13 @@ export default function Home() {
 
             {/* Right column: portrait / card */}
             <div className="mt-8 lg:mt-0 lg:col-span-5 flex justify-center lg:justify-end">
-              <div className="w-full max-w-[460px]">
-                <div className="relative overflow-hidden rounded-2xl bg-white/5 p-0 shadow-2xl shadow-blue-900/20">
-                  {/* substituted designer photo */}
+              <div className="w-full max-w-[520px] flex items-center justify-center">
+                <div className="relative rounded-2xl bg-transparent p-0 shadow-2xl shadow-blue-900/20">
+                  {/* Use the new image and avoid object-cover to prevent cropping; keep transparent background */}
                   <img
                     src="/jorge-hero.png"
                     alt="Retrato de Jorge Auad"
-                    className="w-full h-[320px] object-cover object-center rounded-2xl"
+                    className="mx-auto h-[420px] w-auto object-contain"
                   />
                 </div>
               </div>
