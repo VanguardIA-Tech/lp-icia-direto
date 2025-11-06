@@ -102,15 +102,19 @@ export default function Home() {
             {/* Left column: logo + headline + subheadline + CTA */}
             <div className="lg:col-span-7 flex flex-col gap-6">
               <div>
-                {/* small logo box */}
+                {/* small logo box using uploaded logo */}
                 <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded bg-white/10 p-2">
-                  <img src="/next.svg" alt="VanguardIA" className="h-8 w-8 object-contain" />
+                  <img
+                    src="/vanguardia-logo.png"
+                    alt="VanguardIA"
+                    className="h-10 w-10 object-contain"
+                  />
                 </div>
 
                 {/* Heading — reduced sizes and max width */}
                 <h1 className="text-4xl sm:text-5xl md:text-5xl lg:text-[48px] leading-tight font-extrabold tracking-tight text-left max-w-[540px]">
                   Transforme sua operação com sistemas personalizados de IA e automação integrados à sua realidade.
-                  <span className="block text-blue-400 mt-2">Tudo feito para atender o SEU negócio.</span>
+                  <span className="block text-blue-600 mt-2">Tudo feito para atender o SEU negócio.</span>
                 </h1>
 
                 {/* Subheadline */}
@@ -119,12 +123,12 @@ export default function Home() {
                 </p>
               </div>
 
-              {/* CTA and microcopy */}
+              {/* CTA and microcopy - button less rounded (rounded-md) */}
               <div className="mt-4 flex flex-col items-start gap-3">
                 <Button
                   type="button"
                   onClick={handleCTA}
-                  className="inline-flex items-center gap-3 rounded-full bg-orange-500 px-5 py-3 text-base font-semibold text-white shadow-lg shadow-orange-500/30 transition hover:bg-orange-600"
+                  className="inline-flex items-center gap-3 rounded-md bg-orange-500 px-5 py-3 text-base font-semibold text-white shadow-lg shadow-orange-500/30 transition hover:bg-orange-600"
                 >
                   Quero meu Diagnóstico de Eficiência com IA
                   <ArrowRight className="h-4 w-4" />
@@ -616,7 +620,7 @@ export default function Home() {
       <Button
         type="button"
         onClick={handleCTA}
-        className={`${floatingCTAClasses} rounded-full bg-orange-500 px-6 py-3 text-base font-semibold text-white hover:bg-orange-600`}
+        className={`${floatingCTAClasses} rounded-md bg-orange-500 px-6 py-3 text-base font-semibold text-white hover:bg-orange-600`}
       >
         Agendar Diagnóstico de Eficiência com IA
         <ArrowRight className="ml-2 h-4 w-4" />
