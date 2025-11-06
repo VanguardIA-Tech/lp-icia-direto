@@ -35,12 +35,20 @@ export function TailoredSolutionSection() {
             <h2 className="text-2xl font-semibold text-slate-50 sm:text-3xl">
               A Alfaiataria de IA que cria sistemas sob medida para o seu negócio.
             </h2>
-            <p className="text-base text-slate-300 sm:text-lg">
-              Diferente de ERPs e plataformas genéricas, nós desenhamos sistemas personalizados e integrados com IA e automação, totalmente adaptados ao seu fluxo real. Cada empresa passa por um diagnóstico profundo, mapeamento de processos e prototipagem de soluções. Ao final, você ganha um “Sistema Vivo de Eficiência”: tecnologia que se adapta às pessoas e a sua empresa, e não o contrário. Exatamente o que você nunca tinha encontrado, mas sabe que é o que faltava.
-            </p>
+
+            {/* Texto em dois parágrafos com largura de leitura confortável */}
+            <div className="max-w-prose space-y-4 text-base text-slate-300 sm:text-lg">
+              <p className="leading-relaxed">
+                Diferente de ERPs e plataformas genéricas, nós desenhamos sistemas personalizados e integrados com IA e automação, totalmente adaptados ao seu fluxo real. Cada empresa passa por um diagnóstico profundo, mapeamento de processos e prototipagem de soluções.
+              </p>
+              <p className="leading-relaxed">
+                Ao final, você ganha um “Sistema Vivo de Eficiência”: tecnologia que se adapta às pessoas e a sua empresa, e não o contrário. Exatamente o que você nunca tinha encontrado, mas sabe que é o que faltava.
+              </p>
+            </div>
+
             <Button
               asChild
-              className="inline-flex w-fit items-center gap-2 rounded-full bg-blue-600 px-6 py-3 text-base font-semibold text-white shadow-lg shadow-blue-500/25 transition hover:bg-blue-500"
+              className="mt-8 sm:mt-10 lg:mt-14 inline-flex w-fit items-center gap-2 rounded-md bg-blue-600 px-6 py-3 text-base font-semibold text-white shadow-lg shadow-blue-500/25 transition hover:bg-blue-500"
             >
               <Link href="/form">
                 Quero entender o método
