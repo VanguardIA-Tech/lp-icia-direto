@@ -20,17 +20,17 @@ export function LeaderSection() {
             </p>
           </div>
 
-          {/* Coluna direita: imagem ancorada pela base, sem borda/sombra */}
+          {/* Coluna direita: imagem ancorada pela base, sem borda/sombra (foto limpa) */}
           <div className="relative flex items-end justify-center md:justify-end">
-            <div className="mt-8 w-full max-w-[360px] sm:mx-auto sm:max-w-[420px] md:mt-0 md:max-w-none">
+            <div className="mt-8 w-full mx-auto max-w-[300px] sm:max-w-[340px] md:mt-0 md:max-w-[360px] lg:max-w-[420px] xl:max-w-[460px] 2xl:max-w-[500px]">
               <Image
                 src="/jorge.webp"
                 alt="Jorge Antonio Auad Filho"
                 width={800}
                 height={1000}
                 loading="lazy"
-                sizes="(min-width: 1280px) 42vw, (min-width: 768px) 38vw, 90vw"
-                className="h-auto w-full rounded-2xl object-contain object-bottom"
+                sizes="(min-width: 1536px) 500px, (min-width: 1280px) 460px, (min-width: 1024px) 420px, (min-width: 768px) 360px, 340px"
+                className="h-auto w-full object-contain object-bottom rounded-2xl"
                 priority={false}
               />
             </div>
