@@ -96,13 +96,12 @@ export default function Home() {
       </header>
 
       <main className="flex flex-col">
-        {/* HERO section — menos espaço superior, logo maior e sem fundo no wrapper */}
-        <section className="relative bg-gradient-to-b from-slate-950 via-slate-900 to-slate-800 text-white">
-          <div className="mx-auto w-full max-w-7xl px-6 py-6 sm:py-8 lg:grid lg:grid-cols-12 lg:items-center lg:gap-10">
-            {/* Left column: logo + headline + subheadline + CTA */}
-            <div className="lg:col-span-7 flex flex-col gap-5">
+        {/* HERO section — wider text column, image aligned to bottom */}
+        <section className="relative overflow-hidden bg-gradient-to-b from-slate-950 via-slate-900 to-slate-800 text-white">
+          <div className="mx-auto w-full max-w-7xl px-6 pt-6 sm:pt-8 lg:grid lg:grid-cols-12 lg:items-end lg:gap-10">
+            {/* Left column: wider, text constraints removed */}
+            <div className="lg:col-span-7 flex flex-col gap-5 pb-10 lg:pb-16">
               <div>
-                {/* show logo directly (no colored background wrapper) and increase size */}
                 <div className="mb-2 inline-flex items-center justify-start">
                   <img
                     src="/vanguardia-logo.png"
@@ -111,19 +110,16 @@ export default function Home() {
                   />
                 </div>
 
-                {/* Heading — adjusted sizes and max width */}
-                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[44px] leading-tight font-extrabold tracking-tight text-left max-w-[560px]">
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[44px] leading-tight font-extrabold tracking-tight text-left">
                   Transforme sua operação com sistemas personalizados de IA e automação integrados à sua realidade.
                   <span className={`${highlightedTextClass} block mt-2`}>Tudo feito para atender o SEU negócio.</span>
                 </h1>
 
-                {/* Subheadline */}
-                <p className="mt-4 max-w-[600px] text-base text-slate-200 sm:text-lg">
+                <p className="mt-4 text-base text-slate-200 sm:text-lg">
                   O Programa ICIA (Inteligência Corporativa Integrada com Automação) é a aceleração que redesenha processos, integra pessoas e instala cultura de eficiência com IA. Sem precisar trocar seus sistemas atuais nem contratar um monte de gente com altos salários.
                 </p>
               </div>
 
-              {/* CTA and microcopy - button less rounded (rounded-md) */}
               <div className="mt-3 flex flex-col items-start gap-3">
                 <Button
                   type="button"
@@ -139,18 +135,13 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Right column: portrait / card */}
+            {/* Right column: image aligned to bottom */}
             <div className="mt-6 lg:mt-0 lg:col-span-5 flex justify-center lg:justify-end">
-              <div className="w-full max-w-[520px] flex items-center justify-center">
-                {/* No overflow-hidden or cropping wrapper; image uses object-contain so it's shown entirely */}
-                <div className="relative bg-transparent p-0">
-                  <img
-                    src="/jorge-hero.png"
-                    alt="Retrato de Jorge Auad"
-                    className="mx-auto w-auto max-h-[520px] object-contain"
-                  />
-                </div>
-              </div>
+              <img
+                src="/jorge-hero.png"
+                alt="Retrato de Jorge Auad"
+                className="w-auto max-w-full h-auto max-h-[90vh] object-contain"
+              />
             </div>
           </div>
         </section>
