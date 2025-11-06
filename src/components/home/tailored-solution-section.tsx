@@ -48,17 +48,50 @@ export function TailoredSolutionSection() {
               </Link>
             </Button>
           </div>
-          <div className="grid gap-6 sm:grid-cols-2">
-            {differentiators.map(({ icon: Icon, title, description }) => (
-              <div
-                key={title}
-                className="flex flex-col gap-3 rounded-2xl border border-slate-800 bg-slate-900/70 p-6"
-              >
-                <Icon className="h-7 w-7 text-blue-400" />
-                <h3 className="text-lg font-semibold text-slate-50">{title}</h3>
-                <p className="text-sm text-slate-300">{description}</p>
-              </div>
-            ))}
+
+          {/* Grid 2×2 com alturas consistentes e gutters equilibrados */}
+          <div className="grid items-stretch gap-5 sm:grid-cols-2 sm:gap-6">
+            {differentiators.map(({ icon: Icon, title, description }, index) => {
+              const headingId = `diff-${index}`;
+              return (
+                <Link
+                  key={title}
+                  href="/form"
+                  aria-labelledby={headingId}
+                  className="group block h-full cursor-pointer focus:outline-none"
+                >
+                  <div
+                    className="
+                      flex h-full flex-col gap-3 rounded-2xl border border-slate-800/80
+                      bg-slate-900/70 p-6 shadow-sm transition
+                      duration-200 ease-out
+                      hover:border-slate-700 hover:bg-slate-900 hover:shadow-lg hover:shadow-blue-500/10
+                      focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500
+                      active:scale-[0.99]
+                    "
+                    role="group"
+                  >
+                    <div className="flex h-12 w-12 items-center justify-center rounded-md bg-blue-500/15 ring-1 ring-inset ring-blue-400/20">
+                      <Icon className="h-6 w-6 text-blue-300" aria-hidden="true" />
+                    </div>
+                    <h3 id={headingId} className="text-lg font-semibold text-slate-50">
+                      {title}
+                    </h3>
+                    <p
+                      className="text-sm leading-relaxed text-slate-300"
+                      style={{
+                        display: "-webkit-box",
+                        WebkitLineClamp: 3,
+                        WebkitBoxOrient: "vertical",
+                        overflow: "hidden",
+                      }}
+                    >
+                      {description}
+                    </p>
+                  </div>
+                </Link>
+              );
+            })}
           </div>
         </div>
       </div>
