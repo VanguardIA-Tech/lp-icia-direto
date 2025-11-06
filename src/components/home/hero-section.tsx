@@ -1,10 +1,7 @@
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
-type HeroSectionProps = {
-  onPrimaryClick: () => void;
-};
-
-export function HeroSection({ onPrimaryClick }: HeroSectionProps) {
+export function HeroSection() {
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-slate-950 via-slate-900 to-slate-800 text-white">
       <div className="mx-auto w-full max-w-7xl px-6 pt-6 sm:pt-8 lg:grid lg:grid-cols-12 lg:items-end lg:gap-10">
@@ -23,11 +20,10 @@ export function HeroSection({ onPrimaryClick }: HeroSectionProps) {
 
           <div className="mt-3 flex flex-col items-start gap-3">
             <Button
-              type="button"
-              onClick={onPrimaryClick}
+              asChild
               className="inline-flex items-center rounded-md bg-orange-500 px-5 py-3 text-base font-semibold text-white shadow-lg shadow-orange-500/30 transition hover:bg-orange-600"
             >
-              Quero meu Diagnóstico
+              <Link href="/form">Quero meu Diagnóstico</Link>
             </Button>
             <p className="mt-1 text-sm italic text-slate-300">
               O futuro das empresas eficientes é sob medida. A sua também pode ser.

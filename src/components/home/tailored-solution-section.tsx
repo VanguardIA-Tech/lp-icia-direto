@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Workflow, Gauge, Sparkles, ShieldCheck } from "lucide-react";
 import { sectionContainerClass } from "./section-container";
+import Link from "next/link";
 
 const differentiators = [
   {
@@ -25,11 +26,7 @@ const differentiators = [
   },
 ] as const;
 
-type TailoredSolutionSectionProps = {
-  onSecondaryClick: () => void;
-};
-
-export function TailoredSolutionSection({ onSecondaryClick }: TailoredSolutionSectionProps) {
+export function TailoredSolutionSection() {
   return (
     <section className="bg-slate-950 py-16 sm:py-24">
       <div className={`${sectionContainerClass} gap-8`}>
@@ -42,12 +39,13 @@ export function TailoredSolutionSection({ onSecondaryClick }: TailoredSolutionSe
               Diferente de ERPs e plataformas genéricas, nós desenhamos sistemas personalizados e integrados com IA e automação, totalmente adaptados ao seu fluxo real. Cada empresa passa por um diagnóstico profundo, mapeamento de processos e prototipagem de soluções. Ao final, você ganha um “Sistema Vivo de Eficiência”: tecnologia que se adapta às pessoas e a sua empresa, e não o contrário. Exatamente o que você nunca tinha encontrado, mas sabe que é o que faltava.
             </p>
             <Button
-              type="button"
-              onClick={onSecondaryClick}
+              asChild
               className="inline-flex w-fit items-center gap-2 rounded-full bg-blue-600 px-6 py-3 text-base font-semibold text-white shadow-lg shadow-blue-500/25 transition hover:bg-blue-500"
             >
-              Quero entender o método
-              <ArrowRight className="h-4 w-4" />
+              <Link href="/form">
+                Quero entender o método
+                <ArrowRight className="h-4 w-4" />
+              </Link>
             </Button>
           </div>
           <div className="grid gap-6 sm:grid-cols-2">

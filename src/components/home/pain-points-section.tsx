@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { sectionContainerClass } from "./section-container";
+import Link from "next/link";
 
 const painPoints = [
   "Processos lentos, manuais e repetitivos.",
@@ -10,11 +11,7 @@ const painPoints = [
   "Falta de tempo para pensar e inovar.",
 ] as const;
 
-type PainPointsSectionProps = {
-  onPrimaryClick: () => void;
-};
-
-export function PainPointsSection({ onPrimaryClick }: PainPointsSectionProps) {
+export function PainPointsSection() {
   return (
     <section className="bg-slate-950 py-16 sm:py-24">
       <div className={`${sectionContainerClass} gap-10 items-center`}>
@@ -42,13 +39,14 @@ export function PainPointsSection({ onPrimaryClick }: PainPointsSectionProps) {
 
         <div className="flex w-full max-w-md flex-col items-center gap-4">
           <Button
-            type="button"
-            onClick={onPrimaryClick}
+            asChild
             className="inline-flex w-full items-center justify-center gap-2 rounded-md bg-orange-500 px-6 py-3 text-base font-semibold text-white shadow-lg shadow-orange-500/25 transition-transform hover:scale-[1.02] sm:w-auto"
             aria-label="Quero resolver isso agora"
           >
-            Quero resolver isso agora
-            <ArrowRight className="h-4 w-4" />
+            <Link href="/form">
+              Quero resolver isso agora
+              <ArrowRight className="h-4 w-4" />
+            </Link>
           </Button>
         </div>
       </div>
