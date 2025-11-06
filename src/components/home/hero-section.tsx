@@ -44,9 +44,9 @@ export function HeroSection({ onPrimaryClick }: HeroSectionProps) {
 
         <div className="mt-6 flex justify-center lg:col-span-5 lg:mt-0 lg:justify-end">
           <img
-            src="/jorge.png"
+            src="/jorge-hero.png"
             alt="Retrato de Jorge Auad"
-            className="h-xl max-h-[90vh] w-auto max-w-full object-contain"
+            className="h-auto max-h-[90vh] w-auto max-w-full scale-[1.3] object-contain"
           />
         </div>
       </div>
