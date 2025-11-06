@@ -29,7 +29,7 @@ export default function Home() {
   }, [scrollToForm]);
 
   return (
-    <div className="bg-white text-slate-900">
+    <div className="bg-slate-950 text-slate-100">
       <TopBanner />
 
       <main className="flex flex-col">

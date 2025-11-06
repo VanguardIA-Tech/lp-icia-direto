@@ -53,16 +53,16 @@ export function ApplicationFormSection() {
   };
 
   return (
-    <section id="application-form" className="bg-slate-50 py-16 sm:py-24">
+    <section id="application-form" className="bg-slate-950 py-16 sm:py-24">
       <div className={`${sectionContainerClass} gap-12`}>
         <div className="max-w-3xl space-y-4">
-          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-blue-600">
+          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-blue-400">
             Programa ICIA
           </p>
-          <h2 className="text-2xl font-semibold text-slate-900 sm:text-3xl">
+          <h2 className="text-2xl font-semibold text-slate-50 sm:text-3xl">
             Pronto para iniciar o diagnóstico de eficiência com IA?
           </h2>
-          <p className="text-base text-slate-700 sm:text-lg">
+          <p className="text-base text-slate-300 sm:text-lg">
             Preencha o formulário e nossa equipe entrará em contato para entender seus desafios e traçar o plano sob medida para a sua operação.
           </p>
         </div>
@@ -70,7 +70,7 @@ export function ApplicationFormSection() {
         <Form {...form}>
           <form
             onSubmit={form.handleSubmit(onSubmit)}
-            className="grid gap-8 rounded-3xl border border-slate-200 bg-white/90 p-6 shadow-lg sm:p-8"
+            className="grid gap-8 rounded-3xl border border-slate-800 bg-slate-900/80 p-6 shadow-lg shadow-blue-500/10 sm:p-8"
           >
             <div className="grid gap-4 sm:grid-cols-2">
               <FormField
@@ -78,7 +78,7 @@ export function ApplicationFormSection() {
                 name="name"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Nome completo</FormLabel>
+                    <FormLabel className="text-slate-200">Nome completo</FormLabel>
                     <FormControl>
                       <Input placeholder="Informe seu nome" {...field} />
                     </FormControl>
@@ -91,7 +91,7 @@ export function ApplicationFormSection() {
                 name="email"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>E-mail corporativo</FormLabel>
+                    <FormLabel className="text-slate-200">E-mail corporativo</FormLabel>
                     <FormControl>
                       <Input type="email" placeholder="seuemail@empresa.com" {...field} />
                     </FormControl>
@@ -107,7 +107,7 @@ export function ApplicationFormSection() {
                 name="phone"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Telefone ou WhatsApp</FormLabel>
+                    <FormLabel className="text-slate-200">Telefone ou WhatsApp</FormLabel>
                     <FormControl>
                       <Input placeholder="(00) 00000-0000" {...field} />
                     </FormControl>
@@ -120,7 +120,7 @@ export function ApplicationFormSection() {
                 name="company"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Empresa</FormLabel>
+                    <FormLabel className="text-slate-200">Empresa</FormLabel>
                     <FormControl>
                       <Input placeholder="Nome da empresa" {...field} />
                     </FormControl>
@@ -136,7 +136,9 @@ export function ApplicationFormSection() {
                 name="employees"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Número aproximado de colaboradores</FormLabel>
+                    <FormLabel className="text-slate-200">
+                      Número aproximado de colaboradores
+                    </FormLabel>
                     <FormControl>
                       <Input placeholder="Ex.: 150" {...field} />
                     </FormControl>
@@ -149,7 +151,7 @@ export function ApplicationFormSection() {
                 name="role"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Cargo (opcional)</FormLabel>
+                    <FormLabel className="text-slate-200">Cargo (opcional)</FormLabel>
                     <FormControl>
                       <Input placeholder="Qual é o seu papel na empresa?" {...field} />
                     </FormControl>
@@ -164,7 +166,9 @@ export function ApplicationFormSection() {
               name="message"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Conte-nos sobre o principal desafio (opcional)</FormLabel>
+                  <FormLabel className="text-slate-200">
+                    Conte-nos sobre o principal desafio (opcional)
+                  </FormLabel>
                   <FormControl>
                     <Textarea
                       placeholder="Descreva brevemente os objetivos e gargalos que deseja resolver."
