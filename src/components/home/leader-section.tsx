@@ -1,4 +1,4 @@
-import { ShieldCheck } from "lucide-react";
+import Image from "next/image";
 import { sectionContainerClass } from "./section-container";
 
 export function LeaderSection() {
@@ -17,33 +17,21 @@ export function LeaderSection() {
               “IA não substitui pessoas. Liberta o potencial delas.”
             </p>
           </div>
-          <div className="relative flex items-center justify-center">
-            <div className="relative h-full w-full max-w-sm overflow-hidden rounded-3xl border border-slate-800 bg-slate-900/80 p-8">
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-900/40 via-transparent to-slate-900/60" />
-              <div className="relative space-y-6 text-slate-200">
-                <div>
-                  <p className="text-xs uppercase tracking-[0.3em] text-slate-400">
-                    Bastidores VanguardIA
-                  </p>
-                  <h3 className="mt-4 text-2xl font-semibold text-slate-50">
-                    Eficiência que Liberta
-                  </h3>
-                </div>
-                <div className="space-y-3 text-sm text-slate-300">
-                  <p>
-                    Mentorias executivas, squads de automação e laboratórios internos conectando líderes e tecnologia.
-                  </p>
-                  <p>
-                    Cultura de dados, processos enxutos e IA aplicada para gerar margem e escala sustentável.
-                  </p>
-                </div>
-                <div className="flex items-center gap-2 rounded-2xl border border-slate-700 bg-slate-950/60 p-4 text-xs font-medium uppercase tracking-widest text-slate-200">
-                  <ShieldCheck className="h-5 w-5 text-blue-400" />
-                  VanguardIA — Inteligência Aplicada à Prosperidade
-                </div>
-              </div>
+
+          {/* Imagem ancorada pela base, sem moldura de card */}
+          <div className="relative flex items-end justify-center lg:justify-end">
+            <div className="mt-8 w-full max-w-xs sm:mx-auto sm:max-w-sm md:max-w-md lg:mt-0 lg:max-w-[420px] xl:max-w-[520px]">
+              <Image
+                src="/jorge.webp"
+                alt="Jorge Antonio Auad Filho"
+                width={800}
+                height={1000}
+                loading="lazy"
+                sizes="(min-width: 1280px) 520px, (min-width: 1024px) 420px, (min-width: 768px) 380px, 280px"
+                className="h-auto w-full rounded-2xl object-contain object-bottom shadow-lg shadow-slate-900/30"
+                priority={false}
+              />
             </div>
-            <div className="absolute -left-8 -bottom-8 h-32 w-32 rounded-full bg-blue-500/20 blur-3xl" />
           </div>
         </div>
       </div>
