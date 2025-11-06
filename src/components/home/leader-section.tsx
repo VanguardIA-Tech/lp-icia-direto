@@ -3,10 +3,10 @@ import { sectionContainerClass } from "./section-container";
 
 export function LeaderSection() {
   return (
-    <section className="bg-slate-950 py-16 sm:py-24">
+    <section className="bg-slate-950 py-12 sm:py-16">
       <div className={`${sectionContainerClass} gap-8`}>
-        {/* Grid com itens alinhados à base para ancoragem visual */}
-        <div className="grid items-end gap-10 md:grid-cols-2 lg:gap-16">
+        {/* Grid com itens alinhados ao topo */}
+        <div className="grid items-start gap-10 md:grid-cols-2 lg:gap-16">
           {/* Coluna esquerda: hierarquia e ritmo */}
           <div className="space-y-5 sm:space-y-6 max-w-prose">
             <h2 className="text-2xl font-semibold text-slate-50 sm:text-3xl">
@@ -20,7 +20,7 @@ export function LeaderSection() {
             </p>
           </div>
 
-          {/* Coluna direita: imagem com altura controlada e ancorada pela base */}
+          {/* Coluna direita: imagem com altura proporcional */}
           <div className="relative flex justify-center md:justify-end">
             <div className="mt-8 w-full max-w-[320px] sm:max-w-[360px] md:mt-0 md:max-w-full">
               <Image
@@ -30,7 +30,7 @@ export function LeaderSection() {
                 height={1000}
                 loading="lazy"
                 sizes="(min-width: 768px) 40vw, 90vw"
-                className="h-auto w-full rounded-2xl object-contain object-bottom md:max-h-[480px] lg:max-h-[520px]"
+                className="h-auto w-full rounded-2xl object-contain"
                 priority={false}
               />
             </div>
