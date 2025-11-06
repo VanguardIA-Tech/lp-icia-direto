@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -62,6 +62,7 @@ export default function FormPage() {
 
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
+    mode: "onChange",
     defaultValues: {
       name: "",
       role: "",
@@ -74,24 +75,31 @@ export default function FormPage() {
 
   const { formState } = form;
 
-  const handleNextStep = async () => {
-    const isValid = await form.trigger(step1Fields);
-    if (isValid) {
-      setStep(2);
-    }
-  };
-
-  const handlePrevStep = () => {
-    setStep(1);
-  };
+  const handleNextStep = () => setStep(2);
+  const handlePrevStep = () => setStep(1);
 
   const onSubmit = async (values: FormValues) => {
     console.table(values);
-    // Simulating API call
     await new Promise((resolve) => setTimeout(resolve, 1500));
     toast.success("Diagnóstico solicitado com sucesso!");
     setIsSubmitted(true);
   };
+
+  const watchedStep1Values = form.watch(step1Fields);
+  const [isStep1Valid, setIsStep1Valid] = useState(false);
+
+  useEffect(() => {
+    const validateStep1 = async () => {
+      const step1Schema = formSchema.pick({ name: true, role: true, company: true });
+      const result = await step1Schema.safeParseAsync({
+        name: watchedStep1Values[0],
+        role: watchedStep1Values[1],
+        company: watchedStep1Values[2],
+      });
+      setIsStep1Valid(result.success);
+    };
+    validateStep1();
+  }, [watchedStep1Values]);
 
   if (isSubmitted) {
     return (
@@ -110,103 +118,89 @@ export default function FormPage() {
     );
   }
 
-  const progressValue = step === 1 ? 50 : 100;
-
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100">
       <div className="mx-auto w-full max-w-3xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
-        {/* Header */}
         <div className="mb-10 text-center">
           <h1 className="text-3xl font-extrabold tracking-tight text-slate-50 sm:text-4xl">
             Diagnóstico de Eficiência e IA Integrada
           </h1>
-          <p className="mx-auto mt-4 max-w-2xl text-lg text-slate-300">
-            Quer descobrir quanto <strong>tempo</strong> e <strong>margem</strong> sua empresa pode recuperar com <strong>IA</strong>? Preencha o diagnóstico inicial e receba uma <strong>análise personalizada</strong> em até <strong>48h</strong>.
+          <p className="mx-auto mt-4 max-w-2xl text-lg leading-relaxed text-slate-300">
+            Quer descobrir quanto <strong className="text-orange-400">tempo</strong> e <strong className="text-orange-400">margem</strong> sua empresa pode recuperar com <strong className="text-blue-400">IA</strong>? Preencha o diagnóstico inicial e receba uma <strong className="text-blue-400">análise personalizada</strong> em até <strong className="text-blue-400">48h</strong>.
           </p>
         </div>
 
-        {/* Progress Indicator */}
         <div className="mb-8 space-y-3">
-          <div className="flex justify-between text-sm font-medium text-slate-300">
+          <div className="flex justify-between text-sm font-medium text-slate-300" aria-label={`Etapa ${step} de 2`}>
             <span className={step >= 1 ? "text-blue-400" : ""}>1. Contato</span>
             <span className={step >= 2 ? "text-blue-400" : ""}>2. Detalhes & Envio</span>
           </div>
-          <Progress value={progressValue} className="h-2" />
+          <Progress value={step === 1 ? 50 : 100} className="h-2 w-full bg-slate-800 [&>div]:bg-blue-600" />
         </div>
 
-        {/* Form Card */}
-        <div className="rounded-2xl border border-slate-800 bg-slate-900/80 p-6 shadow-lg shadow-blue-500/5 sm:p-8">
+        <div className="rounded-2xl border border-slate-800 bg-slate-900/80 shadow-lg shadow-blue-500/5">
           <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-              <div aria-live="polite">
-                {step === 1 && (
-                  <div className="grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-2">
-                    <FormField
-                      control={form.control}
-                      name="name"
-                      render={({ field }) => (
-                        <FormItem className="sm:col-span-2">
-                          <FormLabel>Nome completo</FormLabel>
-                          <FormControl>
-                            <Input placeholder="Seu nome" {...field} />
-                          </FormControl>
-                          <FormDescription>
-                            📋 Queremos saber quem lidera a transformação.
-                          </FormDescription>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                    <FormField
-                      control={form.control}
-                      name="role"
-                      render={({ field }) => (
-                        <FormItem className="sm:col-span-2">
-                          <FormLabel>Cargo ou função na empresa</FormLabel>
-                          <FormControl>
-                            <Input placeholder="Ex: Diretor de Operações" {...field} />
-                          </FormControl>
-                          <FormDescription>
-                            📋 Assim entendemos seu papel na decisão e operação.
-                          </FormDescription>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                    <FormField
-                      control={form.control}
-                      name="company"
-                      render={({ field }) => (
-                        <FormItem className="sm:col-span-2">
-                          <FormLabel>Nome da empresa</FormLabel>
-                          <FormControl>
-                            <Input placeholder="Nome da sua empresa" {...field} />
-                          </FormControl>
-                          <FormDescription>
-                            📋 Para conectar ao mapeamento setorial.
-                          </FormDescription>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                  </div>
+            <form onSubmit={form.handleSubmit(onSubmit)}>
+              <div className="sticky top-0 z-10 flex flex-col-reverse gap-4 border-b border-slate-800 bg-slate-900/80 p-4 backdrop-blur-sm sm:flex-row sm:justify-between sm:p-6">
+                {step === 1 ? (
+                  <div></div>
+                ) : (
+                  <Button type="button" variant="outline" onClick={handlePrevStep} className="h-14 border-slate-700 px-6 text-base">
+                    Voltar
+                  </Button>
                 )}
 
-                {step === 2 && (
-                  <div className="space-y-8">
+                {step === 1 ? (
+                  <Button type="button" onClick={handleNextStep} disabled={!isStep1Valid} className="h-14 px-6 text-base">
+                    Continuar <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                ) : (
+                  <Button type="submit" disabled={!formState.isValid || formState.isSubmitting} className="h-14 px-6 text-base">
+                    {formState.isSubmitting && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+                    Receber meu Diagnóstico de Eficiência
+                  </Button>
+                )}
+              </div>
+
+              <div className="p-6 sm:p-8">
+                <div aria-live="polite">
+                  {step === 1 && (
                     <div className="grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-2">
-                      <FormField
-                        control={form.control}
-                        name="employees"
-                        render={({ field }) => (
+                      <FormField control={form.control} name="name" render={({ field }) => (
+                        <FormItem className="sm:col-span-2">
+                          <FormLabel>Nome completo</FormLabel>
+                          <FormControl><Input placeholder="Seu nome" {...field} /></FormControl>
+                          <FormDescription>Queremos saber quem lidera a transformação.</FormDescription>
+                          <FormMessage />
+                        </FormItem>
+                      )} />
+                      <FormField control={form.control} name="role" render={({ field }) => (
+                        <FormItem className="sm:col-span-2">
+                          <FormLabel>Cargo ou função na empresa</FormLabel>
+                          <FormControl><Input placeholder="Ex: Diretor de Operações" {...field} /></FormControl>
+                          <FormDescription>Assim entendemos seu papel na decisão e operação.</FormDescription>
+                          <FormMessage />
+                        </FormItem>
+                      )} />
+                      <FormField control={form.control} name="company" render={({ field }) => (
+                        <FormItem className="sm:col-span-2">
+                          <FormLabel>Nome da empresa</FormLabel>
+                          <FormControl><Input placeholder="Nome da sua empresa" {...field} /></FormControl>
+                          <FormDescription>Para conectar ao mapeamento setorial.</FormDescription>
+                          <FormMessage />
+                        </FormItem>
+                      )} />
+                    </div>
+                  )}
+
+                  {step === 2 && (
+                    <div className="space-y-8">
+                      <div className="grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-2">
+                        <FormField control={form.control} name="employees" render={({ field }) => (
                           <FormItem>
                             <FormLabel><strong>Número aproximado de colaboradores</strong></FormLabel>
                             <Select onValueChange={field.onChange} defaultValue={field.value}>
-                              <FormControl>
-                                <SelectTrigger>
-                                  <SelectValue placeholder="Selecione o tamanho" />
-                                </SelectTrigger>
-                              </FormControl>
+                              <FormControl><SelectTrigger><SelectValue placeholder="Selecione o tamanho" /></SelectTrigger></FormControl>
                               <SelectContent>
                                 <SelectItem value="até 30">até 30</SelectItem>
                                 <SelectItem value="30 a 100">30 a 100</SelectItem>
@@ -216,20 +210,12 @@ export default function FormPage() {
                             </Select>
                             <FormMessage />
                           </FormItem>
-                        )}
-                      />
-                      <FormField
-                        control={form.control}
-                        name="challenge"
-                        render={({ field }) => (
+                        )} />
+                        <FormField control={form.control} name="challenge" render={({ field }) => (
                           <FormItem>
                             <FormLabel><strong>Principal desafio atual</strong></FormLabel>
                             <Select onValueChange={field.onChange} defaultValue={field.value}>
-                              <FormControl>
-                                <SelectTrigger>
-                                  <SelectValue placeholder="Selecione o desafio" />
-                                </SelectTrigger>
-                              </FormControl>
+                              <FormControl><SelectTrigger><SelectValue placeholder="Selecione o desafio" /></SelectTrigger></FormControl>
                               <SelectContent>
                                 <SelectItem value="Processos lentos / retrabalho">Processos lentos / retrabalho</SelectItem>
                                 <SelectItem value="Falta de integração entre sistemas">Falta de integração entre sistemas</SelectItem>
@@ -239,88 +225,44 @@ export default function FormPage() {
                             </Select>
                             <FormMessage />
                           </FormItem>
-                        )}
-                      />
-                      <FormField
-                        control={form.control}
-                        name="whatsapp"
-                        render={({ field }) => (
+                        )} />
+                        <FormField control={form.control} name="whatsapp" render={({ field }) => (
                           <FormItem>
                             <FormLabel><strong>WhatsApp corporativo</strong></FormLabel>
-                            <FormControl>
-                              <Input type="tel" placeholder="(00) 00000-0000" {...field} />
-                            </FormControl>
-                            <FormDescription>
-                              📋 Enviaremos o link direto do diagnóstico.
-                            </FormDescription>
+                            <FormControl><Input type="tel" placeholder="(00) 00000-0000" {...field} /></FormControl>
+                            <FormDescription>Enviaremos o link direto do diagnóstico.</FormDescription>
                             <FormMessage />
                           </FormItem>
-                        )}
-                      />
-                      <FormField
-                        control={form.control}
-                        name="email"
-                        render={({ field }) => (
+                        )} />
+                        <FormField control={form.control} name="email" render={({ field }) => (
                           <FormItem>
                             <FormLabel><strong>E-mail corporativo</strong></FormLabel>
-                            <FormControl>
-                              <Input type="email" placeholder="seuemail@empresa.com" {...field} />
-                            </FormControl>
+                            <FormControl><Input type="email" placeholder="seuemail@empresa.com" {...field} /></FormControl>
                             <FormMessage />
                           </FormItem>
-                        )}
-                      />
-                    </div>
-                    <FormField
-                      control={form.control}
-                      name="lgpd"
-                      render={({ field }) => (
+                        )} />
+                      </div>
+                      <FormField control={form.control} name="lgpd" render={({ field }) => (
                         <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md border border-slate-800 p-4">
-                          <FormControl>
-                            <Checkbox checked={field.value} onCheckedChange={field.onChange} />
-                          </FormControl>
+                          <FormControl><Checkbox checked={field.value} onCheckedChange={field.onChange} /></FormControl>
                           <div className="space-y-1 leading-none">
-                            <FormLabel>
-                              Li e autorizo o contato para o Diagnóstico ICIA conforme a LGPD.
-                            </FormLabel>
+                            <FormLabel>Li e autorizo o contato para o Diagnóstico ICIA conforme a LGPD.</FormLabel>
                             <FormMessage />
                           </div>
                         </FormItem>
-                      )}
-                    />
-                  </div>
-                )}
-              </div>
-
-              {/* Navigation Buttons */}
-              <div className="flex flex-col-reverse gap-4 sm:flex-row sm:justify-between">
-                {step === 2 ? (
-                  <Button type="button" variant="outline" onClick={handlePrevStep}>
-                    Voltar
-                  </Button>
-                ) : (
-                  <div></div> // Placeholder for alignment
-                )}
-
-                {step === 1 ? (
-                  <Button type="button" onClick={handleNextStep} className="w-full sm:w-auto">
-                    Continuar <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                ) : (
-                  <div className="flex w-full flex-col items-center gap-3 sm:w-auto">
-                    <Button type="submit" disabled={formState.isSubmitting} className="w-full sm:w-auto">
-                      {formState.isSubmitting && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-                      Receber meu Diagnóstico de Eficiência
-                    </Button>
-                    <p className="text-xs text-slate-400">
-                      💬 Tempo médio de resposta: 24h úteis. Sua eficiência começa com clareza.
-                    </p>
-                  </div>
-                )}
+                      )} />
+                    </div>
+                  )}
+                </div>
               </div>
             </form>
           </Form>
         </div>
+        {step === 2 && (
+          <p className="mt-8 text-center text-xs text-slate-400">
+            Tempo médio de resposta: 24h úteis. Sua eficiência começa com clareza.
+          </p>
+        )}
       </div>
     </div>
   );
