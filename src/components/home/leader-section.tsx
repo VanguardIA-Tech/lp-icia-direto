@@ -5,8 +5,8 @@ export function LeaderSection() {
   return (
     <section className="bg-slate-950 py-16 sm:py-24">
       <div className={`${sectionContainerClass} gap-8`}>
-        {/* Grid com proporções controladas: texto ~60/58% e imagem ~40/42% */}
-        <div className="grid gap-10 md:[grid-template-columns:62%_38%] lg:[grid-template-columns:58%_42%]">
+        {/* Grid com proporções controladas: texto ~60% e imagem ~40% */}
+        <div className="grid items-center gap-10 md:grid-cols-2 lg:gap-16">
           {/* Coluna esquerda: hierarquia e ritmo */}
           <div className="space-y-5 sm:space-y-6 max-w-prose">
             <h2 className="text-2xl font-semibold text-slate-50 sm:text-3xl">
@@ -20,17 +20,17 @@ export function LeaderSection() {
             </p>
           </div>
 
-          {/* Coluna direita: imagem ancorada pela base, sem borda/sombra (foto limpa) */}
+          {/* Coluna direita: imagem ancorada pela base, sem borda/sombra */}
           <div className="relative flex items-end justify-center md:justify-end">
-            <div className="mt-8 w-full mx-auto max-w-[300px] sm:max-w-[340px] md:mt-0 md:max-w-[360px] lg:max-w-[420px] xl:max-w-[460px] 2xl:max-w-[500px]">
+            <div className="mt-8 w-full max-w-[320px] sm:max-w-[360px] md:mt-0 md:max-w-full">
               <Image
                 src="/jorge.webp"
                 alt="Jorge Antonio Auad Filho"
                 width={800}
                 height={1000}
                 loading="lazy"
-                sizes="(min-width: 1536px) 500px, (min-width: 1280px) 460px, (min-width: 1024px) 420px, (min-width: 768px) 360px, 340px"
-                className="h-auto w-full object-contain object-bottom rounded-2xl"
+                sizes="(min-width: 768px) 40vw, 90vw"
+                className="h-auto w-full rounded-2xl object-contain object-bottom"
                 priority={false}
               />
             </div>
