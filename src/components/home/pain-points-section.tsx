@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { sectionContainerClass } from "./section-container";
 import Link from "next/link";
+import React from "react";
 
 const painPoints = [
   <>
@@ -60,16 +61,12 @@ export function PainPointsSection() {
                 <div
                   key={`step-${index}`}
                   className="
-                    group relative rounded-2xl border border-slate-800 bg-slate-900/70
+                    group relative flex items-center rounded-2xl border border-slate-800 bg-slate-900/70
                     p-6 transition-all duration-200 ease-out
                     hover:-translate-y-0.5 hover:border-slate-700 hover:shadow-lg hover:shadow-blue-500/10
                     md:h-32
                   "
                 >
-                  {/* Bullet e Linha (Mobile) */}
-                  <div className="absolute -left-6 top-8 hidden h-3 w-3 rounded-full bg-blue-500/50 ring-4 ring-blue-500/10 md:hidden" />
-                  <div className="absolute bottom-full left-0 h-8 w-0.5 bg-slate-800 md:hidden" />
-
                   <p className="text-base text-slate-300 sm:text-lg">
                     <span className="font-semibold text-slate-100">{point}</span>
                   </p>
@@ -95,5 +92,3 @@ export function PainPointsSection() {
     </section>
   );
 }
-
-import React from "react";
