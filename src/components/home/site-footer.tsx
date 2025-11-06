@@ -13,30 +13,27 @@ export function SiteFooter() {
   return (
     <footer className="border-t border-slate-800 bg-slate-950 text-slate-300">
       <div className={`${sectionContainerClass} py-8 md:py-10`}>
-        <div className="flex flex-col items-center gap-8 md:flex-row md:justify-between">
-          {/* Logo e Descrição */}
+        <div className="flex flex-col items-center gap-8 md:flex-row md:justify-between md:items-center">
+          {/* Logo */}
           <div className="text-center md:text-left">
             <Link href="/" className="inline-block" aria-label="Página Inicial da VanguardIA">
               <Image
                 src="/vanguardia-logo.png"
                 alt="VanguardIA Logo"
-                width={188}
-                height={40}
-                className="h-10 w-auto"
+                width={207}
+                height={44}
+                className="h-11 w-auto"
                 priority={false}
               />
             </Link>
-            <p className="mx-auto mt-4 max-w-xs text-sm text-slate-400 md:mx-0">
-              IA e automação sob medida para empresas que buscam eficiência real.
-            </p>
           </div>
 
           {/* Redes Sociais */}
-          <div className="text-center md:text-left">
+          <div className="flex flex-col items-center gap-4 md:flex-row">
             <h3 className="text-sm font-semibold uppercase tracking-wider text-slate-100">
               Siga-nos
             </h3>
-            <div className="mt-4 flex items-center justify-center gap-2 md:justify-start">
+            <div className="flex items-center gap-2">
               {socialLinks.map((social) => (
                 <a
                   key={social.name}
