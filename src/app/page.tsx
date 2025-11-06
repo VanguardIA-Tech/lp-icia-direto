@@ -96,22 +96,22 @@ export default function Home() {
       </header>
 
       <main className="flex flex-col">
-        {/* HERO section — ajustado: menos espaço superior, fontes menores e menos margem lateral */}
+        {/* HERO section — menos espaço superior, logo maior e sem fundo no wrapper */}
         <section className="relative bg-gradient-to-b from-slate-950 via-slate-900 to-slate-800 text-white">
-          <div className="mx-auto w-full max-w-7xl px-6 py-12 sm:py-16 lg:grid lg:grid-cols-12 lg:items-center lg:gap-10">
+          <div className="mx-auto w-full max-w-7xl px-6 py-8 sm:py-12 lg:grid lg:grid-cols-12 lg:items-center lg:gap-10">
             {/* Left column: logo + headline + subheadline + CTA */}
             <div className="lg:col-span-7 flex flex-col gap-6">
               <div>
-                {/* small logo box using uploaded logo */}
-                <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded bg-white/10 p-2">
+                {/* show logo directly without a colored background wrapper and increase size */}
+                <div className="mb-3 inline-flex items-center justify-start">
                   <img
                     src="/vanguardia-logo.png"
                     alt="VanguardIA"
-                    className="h-10 w-10 object-contain"
+                    className="h-12 w-auto sm:h-14 md:h-16 object-contain"
                   />
                 </div>
 
-                {/* Heading — reduced sizes and max width */}
+                {/* Heading — reduced sizes and max width for legibility */}
                 <h1 className="text-4xl sm:text-5xl md:text-5xl lg:text-[48px] leading-tight font-extrabold tracking-tight text-left max-w-[540px]">
                   Transforme sua operação com sistemas personalizados de IA e automação integrados à sua realidade.
                   <span className="block text-blue-600 mt-2">Tudo feito para atender o SEU negócio.</span>
@@ -430,172 +430,6 @@ export default function Home() {
             </div>
           </div>
         </section>
-
-        <section className="bg-white py-16 sm:py-24">
-          <div className={`${sectionContainer} gap-8`}>
-            <div className="grid gap-10 lg:grid-cols-[1fr_1.1fr]">
-              <div className="space-y-6">
-                <h2 className="text-2xl font-semibold text-slate-900 sm:text-3xl">
-                  Habilitamos pessoas e empresas para pilotar a IA com autonomia.
-                </h2>
-                <p className="text-base text-slate-700 sm:text-lg">
-                  Além de sistemas sob medida, o ICIA instala cultura. Com o CNH da IA para CNPJ, habilitamos profissionais e gestores a operarem a nova tecnologia de forma inteligente e segura. Ao final do programa, sua empresa não depende de consultores externos — ela pensa, automatiza e cresce com IA.
-                </p>
-                <div className="space-y-4">
-                  {[
-                    {
-                      title: "Capacitação aplicada",
-                      description:
-                        "Workshops e laboratórios práticos para times executarem IA no dia a dia.",
-                    },
-                    {
-                      title: "Playbooks proprietários",
-                      description:
-                        "Métodos CNH da IA, COPA e CTC documentados e adaptados à sua operação.",
-                    },
-                    {
-                      title: "Autonomia sustentável",
-                      description:
-                        "Times habilitados a identificar oportunidades e escalar automações continuamente.",
-                    },
-                  ].map(({ title, description }) => (
-                    <div key={title} className="flex items-start gap-3">
-                      <Sparkles className="mt-1.5 h-5 w-5 text-blue-600" />
-                      <div>
-                        <p className="text-base font-semibold text-slate-900 sm:text-lg">{title}</p>
-                        <p className="text-sm text-slate-600">{description}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-              <div
-                id="application-form"
-                className="rounded-3xl border border-slate-200 bg-slate-50 p-8 shadow-sm"
-              >
-                <div className="mb-6 space-y-2">
-                  <h2 className="text-2xl font-semibold text-slate-900 sm:text-3xl">
-                    Preencha o formulário e aplique-se agora.
-                  </h2>
-                  <p className="text-sm text-slate-600 sm:text-base">
-                    As vagas para o Diagnóstico ICIA são limitadas. Preencha os dados abaixo para verificar elegibilidade e receber contato da nossa equipe.
-                  </p>
-                </div>
-
-                <Form {...form}>
-                  <form onSubmit={form.handleSubmit(onSubmit)} className="grid gap-5">
-                    <FormField
-                      control={form.control}
-                      name="name"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Nome completo</FormLabel>
-                          <FormControl>
-                            <Input placeholder="Digite seu nome" {...field} />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                    <FormField
-                      control={form.control}
-                      name="email"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>E-mail corporativo</FormLabel>
-                          <FormControl>
-                            <Input placeholder="nome@empresa.com" type="email" {...field} />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                    <FormField
-                      control={form.control}
-                      name="phone"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Telefone ou WhatsApp</FormLabel>
-                          <FormControl>
-                            <Input placeholder="(00) 00000-0000" {...field} />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                    <FormField
-                      control={form.control}
-                      name="company"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Empresa</FormLabel>
-                          <FormControl>
-                            <Input placeholder="Nome da empresa" {...field} />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                    <FormField
-                      control={form.control}
-                      name="employees"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Número de colaboradores</FormLabel>
-                          <FormControl>
-                            <Input
-                              placeholder="Ex.: 150"
-                              inputMode="numeric"
-                              {...field}
-                            />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                    <FormField
-                      control={form.control}
-                      name="role"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Cargo (opcional)</FormLabel>
-                          <FormControl>
-                            <Input placeholder="Cargo ou departamento" {...field} />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                    <FormField
-                      control={form.control}
-                      name="message"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Contexto atual (opcional)</FormLabel>
-                          <FormControl>
-                            <Textarea
-                              placeholder="Compartilhe desafios, metas ou expectativas para o ICIA."
-                              className="min-h-[120px]"
-                              {...field}
-                            />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                    <Button
-                      type="submit"
-                      className="inline-flex items-center justify-center gap-2 rounded-full bg-orange-500 px-6 py-3 text-base font-semibold text-white shadow-lg shadow-orange-500/30 transition hover:bg-orange-600"
-                    >
-                      Quero meu Diagnóstico ICIA
-                      <ArrowRight className="h-4 w-4" />
-                    </Button>
-                  </form>
-                </Form>
-              </div>
-            </div>
-          </div>
-        </section>
       </main>
 
       <footer className="bg-slate-950 py-10 text-slate-300">
@@ -613,7 +447,7 @@ export default function Home() {
           </div>
         </div>
         <div className="mt-6 text-center text-xs uppercase tracking-[0.3em] text-slate-500">
-          “VanguardIA — Inteligência Aplicada à Prosperidade.”
+----------
         </div>
       </footer>
 
