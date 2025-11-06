@@ -50,7 +50,7 @@ const floatingCTAClasses =
 const sectionContainer =
   "mx-auto flex w-full max-w-6xl flex-col gap-8 px-4 sm:px-6 lg:px-8";
 
-const highlightedTextClass = "font-semibold text-blue-600";
+const highlightedTextClass = "font-semibold text-blue-700";
 
 export default function Home() {
   const form = useForm<ApplicationFormValues>({
@@ -98,33 +98,33 @@ export default function Home() {
       <main className="flex flex-col">
         {/* HERO section — menos espaço superior, logo maior e sem fundo no wrapper */}
         <section className="relative bg-gradient-to-b from-slate-950 via-slate-900 to-slate-800 text-white">
-          <div className="mx-auto w-full max-w-7xl px-6 py-8 sm:py-12 lg:grid lg:grid-cols-12 lg:items-center lg:gap-10">
+          <div className="mx-auto w-full max-w-7xl px-6 py-6 sm:py-8 lg:grid lg:grid-cols-12 lg:items-center lg:gap-10">
             {/* Left column: logo + headline + subheadline + CTA */}
-            <div className="lg:col-span-7 flex flex-col gap-6">
+            <div className="lg:col-span-7 flex flex-col gap-5">
               <div>
-                {/* show logo directly without a colored background wrapper and increase size */}
-                <div className="mb-3 inline-flex items-center justify-start">
+                {/* show logo directly (no colored background wrapper) and increase size */}
+                <div className="mb-2 inline-flex items-center justify-start">
                   <img
                     src="/vanguardia-logo.png"
                     alt="VanguardIA"
-                    className="h-12 w-auto sm:h-14 md:h-16 object-contain"
+                    className="h-16 w-auto sm:h-18 md:h-20 object-contain"
                   />
                 </div>
 
-                {/* Heading — reduced sizes and max width for legibility */}
-                <h1 className="text-4xl sm:text-5xl md:text-5xl lg:text-[48px] leading-tight font-extrabold tracking-tight text-left max-w-[540px]">
+                {/* Heading — adjusted sizes and max width */}
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[44px] leading-tight font-extrabold tracking-tight text-left max-w-[560px]">
                   Transforme sua operação com sistemas personalizados de IA e automação integrados à sua realidade.
-                  <span className="block text-blue-600 mt-2">Tudo feito para atender o SEU negócio.</span>
+                  <span className={`${highlightedTextClass} block mt-2`}>Tudo feito para atender o SEU negócio.</span>
                 </h1>
 
                 {/* Subheadline */}
-                <p className="mt-5 max-w-[560px] text-base text-slate-200 sm:text-lg">
+                <p className="mt-4 max-w-[600px] text-base text-slate-200 sm:text-lg">
                   O Programa ICIA (Inteligência Corporativa Integrada com Automação) é a aceleração que redesenha processos, integra pessoas e instala cultura de eficiência com IA. Sem precisar trocar seus sistemas atuais nem contratar um monte de gente com altos salários.
                 </p>
               </div>
 
               {/* CTA and microcopy - button less rounded (rounded-md) */}
-              <div className="mt-4 flex flex-col items-start gap-3">
+              <div className="mt-3 flex flex-col items-start gap-3">
                 <Button
                   type="button"
                   onClick={handleCTA}
@@ -133,21 +133,21 @@ export default function Home() {
                   Quero meu Diagnóstico de Eficiência com IA
                   <ArrowRight className="h-4 w-4" />
                 </Button>
-                <p className="mt-2 text-sm italic text-slate-300">
+                <p className="mt-1 text-sm italic text-slate-300">
                   O futuro das empresas eficientes é sob medida. A sua também pode ser.
                 </p>
               </div>
             </div>
 
             {/* Right column: portrait / card */}
-            <div className="mt-8 lg:mt-0 lg:col-span-5 flex justify-center lg:justify-end">
+            <div className="mt-6 lg:mt-0 lg:col-span-5 flex justify-center lg:justify-end">
               <div className="w-full max-w-[520px] flex items-center justify-center">
-                <div className="relative rounded-2xl bg-transparent p-0 shadow-2xl shadow-blue-900/20">
-                  {/* Use the new image and avoid object-cover to prevent cropping; keep transparent background */}
+                {/* No overflow-hidden or cropping wrapper; image uses object-contain so it's shown entirely */}
+                <div className="relative bg-transparent p-0">
                   <img
                     src="/jorge-hero.png"
                     alt="Retrato de Jorge Auad"
-                    className="mx-auto h-[420px] w-auto object-contain"
+                    className="mx-auto w-auto max-h-[520px] object-contain"
                   />
                 </div>
               </div>
@@ -363,69 +363,6 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="absolute -left-8 -bottom-8 h-32 w-32 rounded-full bg-blue-200/60 blur-3xl" />
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="bg-slate-100 py-16 sm:py-24">
-          <div className={`${sectionContainer} gap-8`}>
-            <div className="grid gap-10 lg:grid-cols-[1.2fr_1fr]">
-              <div className="space-y-6">
-                <h2 className="text-2xl font-semibold text-slate-900 sm:text-3xl">
-                  Descubra onde a IA pode liberar horas e aumentar margem na sua operação.
-                </h2>
-                <p className="text-base text-slate-700 sm:text-lg">
-                  O Diagnóstico ICIA é a porta de entrada para a transformação. Em apenas 15 a 30 minutos, identificamos:
-                </p>
-                <ul className="space-y-4 text-base text-slate-700 sm:text-lg">
-                  {[
-                    "Os gargalos que travam sua eficiência.",
-                    "As integrações que podem gerar automação imediata.",
-                    "O potencial de economia e aceleração via IA.",
-                  ].map((item) => (
-                    <li key={item} className="flex items-start gap-3">
-                      <CheckCircle2 className="mt-1.5 h-5 w-5 flex-none text-blue-600" />
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-                <div className="space-y-3 rounded-2xl border border-blue-200 bg-blue-50 p-6 text-sm text-slate-700 sm:text-base">
-                  <p className={`${highlightedTextClass}`}>Entrega:</p>
-                  <p>📄 Relatório de Eficiência + Recomendações Práticas.</p>
-                  <p>💬 Sessão consultiva com especialista da VanguardIA.</p>
-                </div>
-                <Button
-                  type="button"
-                  onClick={handleCTA}
-                  className="inline-flex w-fit items-center gap-2 rounded-full bg-orange-500 px-6 py-3 text-base font-semibold text-white shadow-lg shadow-orange-500/30 transition hover:bg-orange-600"
-                >
-                  Agendar meu Diagnóstico ICIA
-                  <ArrowRight className="h-4 w-4" />
-                </Button>
-              </div>
-              <div className="space-y-6 rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
-                <div className="flex items-center gap-3 text-slate-900">
-                  <Rocket className="h-8 w-8 text-blue-600" />
-                  <div>
-                    <h3 className="text-lg font-semibold">Sua jornada em 3 passos</h3>
-                    <p className="text-sm text-slate-600">Diagnosticar, prototipar e ativar eficiência real.</p>
-                  </div>
-                </div>
-                <div className="space-y-5 text-sm text-slate-600">
-                  <div>
-                    <p className="font-semibold text-slate-800">1. Diagnóstico Profundo</p>
-                    <p>Mapeamos processos, dados e ferramentas para encontrar brechas de eficiência.</p>
-                  </div>
-                  <div>
-                    <p className="font-semibold text-slate-800">2. Desenho sob Medida</p>
-                    <p>Prototipamos soluções com IA integrada aos sistemas que já existem.</p>
-                  </div>
-                  <div>
-                    <p className="font-semibold text-slate-800">3. Ativação e Cultura</p>
-                    <p>Instalamos a cultura de autonomia com IA para garantir resultados duradouros.</p>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
