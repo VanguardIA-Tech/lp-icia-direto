@@ -50,9 +50,14 @@ export function TailoredSolutionSection() {
               asChild
               className="mt-8 sm:mt-10 lg:mt-14 inline-flex w-fit items-center gap-2 rounded-md bg-blue-600 px-6 py-3 text-base font-semibold text-white shadow-lg shadow-blue-500/25 transition hover:bg-blue-500"
             >
-              <Link href="/form">
+              <Link
+                href="/form"
+                id="cta-tailored-solution"
+                data-cta="primary"
+                data-track="true"
+              >
                 Quero entender o método
-                <ArrowRight className="h-4 w-4" />
+                <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </Link>
             </Button>
           </div>
@@ -67,6 +72,7 @@ export function TailoredSolutionSection() {
                   href="/form"
                   aria-labelledby={headingId}
                   className="group block h-full cursor-pointer focus:outline-none"
+                  data-track="true"
                 >
                   <div
                     className="

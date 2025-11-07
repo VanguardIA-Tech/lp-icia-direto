@@ -97,7 +97,7 @@ export function PainPointsSection() {
                     md:h-28
                   "
                 >
-                  <Icon className="h-6 w-6 flex-shrink-0 text-blue-400" />
+                  <Icon className="h-6 w-6 flex-shrink-0 text-blue-400" aria-hidden="true" />
                   <p className="text-base text-slate-300 sm:text-lg">
                     <span className="font-semibold text-slate-100">{text}</span>
                   </p>
@@ -113,9 +113,14 @@ export function PainPointsSection() {
             className="inline-flex w-full items-center justify-center gap-2 rounded-md bg-orange-500 px-6 py-3 text-base font-semibold text-white shadow-lg shadow-orange-500/25 transition-transform hover:scale-[1.02] sm:w-auto"
             aria-label="Quero resolver isso agora"
           >
-            <Link href="/form">
+            <Link
+              href="/form"
+              id="cta-pain-points"
+              data-cta="primary"
+              data-track="true"
+            >
               Quero resolver isso agora
-              <ArrowRight className="h-4 w-4" />
+              <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </Link>
           </Button>
         </div>

@@ -29,11 +29,11 @@ export function SiteFooter() {
           </div>
 
           {/* Redes Sociais */}
-          <div className="flex flex-col items-center gap-4 md:flex-row">
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-slate-100">
+          <nav className="flex flex-col items-center gap-4 md:flex-row" aria-label="Redes sociais">
+            <h3 className="text-sm font-semibold uppercase tracking-wider text-slate-100" id="social-links-heading">
               Siga-nos
             </h3>
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2" role="list" aria-labelledby="social-links-heading">
               {socialLinks.map((social) => (
                 <a
                   key={social.name}
@@ -42,12 +42,14 @@ export function SiteFooter() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="rounded-md p-2 text-slate-400 transition-colors hover:text-blue-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+                  data-track="true"
+                  role="listitem"
                 >
-                  <social.icon className="h-5 w-5" />
+                  <social.icon className="h-5 w-5" aria-hidden="true" />
                 </a>
               ))}
             </div>
-          </div>
+          </nav>
         </div>
 
         {/* Linha Inferior */}

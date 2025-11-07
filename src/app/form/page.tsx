@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { toast } from "sonner";
-import { ArrowRight, CheckCircle, Loader2 } from "lucide-react";
+import { ArrowRight, Loader2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useRouter } from "next/navigation";
 
@@ -29,7 +29,6 @@ import {
 } from "@/components/ui/select";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Progress } from "@/components/ui/progress";
-import Link from "next/link";
 
 const formSchema = z.object({
   name: z.string().min(1, "Queremos saber quem lidera a transformação."),
@@ -104,7 +103,7 @@ export default function FormPage() {
   }, [watchedStep1Values]);
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100">
+    <main className="min-h-screen bg-slate-950 text-slate-100">
       <div className="mx-auto w-full max-w-3xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
         <div className="mb-10 text-center">
           <h1 className="text-3xl font-extrabold tracking-tight text-slate-50 sm:text-4xl">
@@ -130,7 +129,7 @@ export default function FormPage() {
                 {step === 1 ? (
                   <div></div>
                 ) : (
-                  <Button type="button" variant="outline" onClick={handlePrevStep} className="h-10 border-slate-600 bg-transparent px-4 text-slate-200 hover:bg-slate-800 hover:text-white">
+                  <Button type="button" variant="outline" onClick={handlePrevStep} className="h-10 border-slate-600 bg-transparent px-4 text-slate-200 hover:bg-slate-800 hover:text-white" id="btn-form-back" data-track="true">
                     Voltar
                   </Button>
                 )}
@@ -146,8 +145,10 @@ export default function FormPage() {
                         ? "bg-orange-500 hover:bg-orange-600"
                         : "bg-orange-500/20 text-orange-400/70 cursor-not-allowed"
                     )}
+                    id="btn-form-next"
+                    data-track="true"
                   >
-                    Continuar <ArrowRight className="ml-2 h-4 w-4" />
+                    Continuar <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
                   </Button>
                 )}
               </div>
@@ -159,7 +160,7 @@ export default function FormPage() {
                       <FormField control={form.control} name="name" render={({ field }) => (
                         <FormItem className="sm:col-span-2">
                           <FormLabel>Nome completo</FormLabel>
-                          <FormControl><Input placeholder="Seu nome" {...field} /></FormControl>
+                          <FormControl><Input placeholder="Seu nome" {...field} aria-required="true" /></FormControl>
                           <FormDescription>Queremos saber quem lidera a transformação.</FormDescription>
                           <FormMessage />
                         </FormItem>
@@ -167,7 +168,7 @@ export default function FormPage() {
                       <FormField control={form.control} name="role" render={({ field }) => (
                         <FormItem className="sm:col-span-2">
                           <FormLabel>Cargo ou função na empresa</FormLabel>
-                          <FormControl><Input placeholder="Ex: Diretor de Operações" {...field} /></FormControl>
+                          <FormControl><Input placeholder="Ex: Diretor de Operações" {...field} aria-required="true" /></FormControl>
                           <FormDescription>Assim entendemos seu papel na decisão e operação.</FormDescription>
                           <FormMessage />
                         </FormItem>
@@ -175,7 +176,7 @@ export default function FormPage() {
                       <FormField control={form.control} name="company" render={({ field }) => (
                         <FormItem className="sm:col-span-2">
                           <FormLabel>Nome da empresa</FormLabel>
-                          <FormControl><Input placeholder="Nome da sua empresa" {...field} /></FormControl>
+                          <FormControl><Input placeholder="Nome da sua empresa" {...field} aria-required="true" /></FormControl>
                           <FormDescription>Para conectar ao mapeamento setorial.</FormDescription>
                           <FormMessage />
                         </FormItem>
@@ -189,7 +190,7 @@ export default function FormPage() {
                         <FormField control={form.control} name="employees" render={({ field }) => (
                           <FormItem>
                             <FormLabel><strong>Número aproximado de colaboradores</strong></FormLabel>
-                            <Select onValueChange={field.onChange} defaultValue={field.value}>
+                            <Select onValueChange={field.onChange} defaultValue={field.value} required aria-required="true">
                               <FormControl><SelectTrigger><SelectValue placeholder="Selecione o tamanho" /></SelectTrigger></FormControl>
                               <SelectContent>
                                 <SelectItem value="até 30">até 30</SelectItem>
@@ -204,7 +205,7 @@ export default function FormPage() {
                         <FormField control={form.control} name="challenge" render={({ field }) => (
                           <FormItem>
                             <FormLabel><strong>Principal desafio atual</strong></FormLabel>
-                            <Select onValueChange={field.onChange} defaultValue={field.value}>
+                            <Select onValueChange={field.onChange} defaultValue={field.value} required aria-required="true">
                               <FormControl><SelectTrigger><SelectValue placeholder="Selecione o desafio" /></SelectTrigger></FormControl>
                               <SelectContent>
                                 <SelectItem value="Processos lentos / retrabalho">Processos lentos / retrabalho</SelectItem>
@@ -219,7 +220,7 @@ export default function FormPage() {
                         <FormField control={form.control} name="whatsapp" render={({ field }) => (
                           <FormItem>
                             <FormLabel><strong>WhatsApp corporativo</strong></FormLabel>
-                            <FormControl><Input type="tel" placeholder="(00) 00000-0000" {...field} /></FormControl>
+                            <FormControl><Input type="tel" placeholder="(00) 00000-0000" {...field} aria-required="true" /></FormControl>
                             <FormDescription>Enviaremos o link direto do diagnóstico.</FormDescription>
                             <FormMessage />
                           </FormItem>
@@ -227,14 +228,14 @@ export default function FormPage() {
                         <FormField control={form.control} name="email" render={({ field }) => (
                           <FormItem>
                             <FormLabel><strong>E-mail corporativo</strong></FormLabel>
-                            <FormControl><Input type="email" placeholder="seuemail@empresa.com" {...field} /></FormControl>
+                            <FormControl><Input type="email" placeholder="seuemail@empresa.com" {...field} aria-required="true" /></FormControl>
                             <FormMessage />
                           </FormItem>
                         )} />
                       </div>
                       <FormField control={form.control} name="lgpd" render={({ field }) => (
                         <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md border border-slate-700 p-4">
-                          <FormControl><Checkbox checked={field.value} onCheckedChange={field.onChange} className="border-slate-400 data-[state=checked]:bg-blue-600 data-[state=checked]:text-white" /></FormControl>
+                          <FormControl><Checkbox checked={field.value} onCheckedChange={field.onChange} className="border-slate-400 data-[state=checked]:bg-blue-600 data-[state=checked]:text-white" aria-required="true" /></FormControl>
                           <div className="space-y-1 leading-none">
                             <FormLabel>Li e autorizo o contato para o Diagnóstico ICIA conforme a LGPD.</FormLabel>
                             <FormMessage />
@@ -251,8 +252,11 @@ export default function FormPage() {
                               ? "bg-green-600 hover:bg-green-700"
                               : "bg-green-500/20 text-green-300/70 cursor-not-allowed"
                           )}
+                          id="btn-form-submit"
+                          data-cta="lead"
+                          data-track="true"
                         >
-                          {formState.isSubmitting && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+                          {formState.isSubmitting && <Loader2 className="mr-2 h-4 w-4 animate-spin" aria-hidden="true" />}
                           Receber meu Diagnóstico de Eficiência
                         </Button>
                         <p className="text-center text-xs text-slate-400">
@@ -267,6 +271,6 @@ export default function FormPage() {
           </Form>
         </div>
       </div>
-    </div>
+    </main>
   );
 }
