@@ -24,10 +24,10 @@ export function SelectionCriteriaSection() {
     <section className="bg-slate-900 py-16 sm:py-20 lg:py-24">
       <div className={`${sectionContainerClass} gap-10`}>
         {/* Cabeçalho centralizado */}
-        <div className="mx-auto max-w-[66ch] space-y-5 text-center">
+        <div className="mx-auto max-w-4xl space-y-5 text-center">
           <h2 className="text-balance text-3xl font-extrabold tracking-tight text-slate-50 sm:text-4xl md:text-5xl">
-            <span className="text-blue-400">100% das empresas</span> são{" "}
-            <span className="text-blue-400">criteriosamente selecionadas</span>.
+            <span className="text-orange-400">100% das empresas</span> são{" "}
+            <span className="text-orange-400">criteriosamente selecionadas</span>.
           </h2>
           <p className="text-base leading-relaxed text-slate-300 sm:text-lg">
             Fazemos o que ninguém no Brasil faz. E fazemos com{" "}
