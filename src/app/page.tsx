@@ -39,9 +39,14 @@ export default function Home() {
         asChild
         className={`${floatingCTAClasses} rounded-md bg-orange-500 px-6 py-3 text-base font-semibold text-white hover:bg-orange-600`}
       >
-        <Link href="/form">
+        <Link
+          href="/form"
+          id="cta-floating"
+          data-cta="lead"
+          data-track="true"
+        >
           Agendar Diagnóstico de Eficiência com IA
-          <ArrowRight className="ml-2 h-4 w-4" />
+          <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
         </Link>
       </Button>
     </div>

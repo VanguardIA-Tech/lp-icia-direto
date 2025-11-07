@@ -23,7 +23,14 @@ export function HeroSection() {
               asChild
               className="inline-flex items-center rounded-md bg-orange-500 px-5 py-3 text-base font-semibold text-white shadow-lg shadow-orange-500/30 transition hover:bg-orange-600"
             >
-              <Link href="/form">Quero meu Diagnóstico</Link>
+              <Link
+                href="/form"
+                id="cta-hero"
+                data-cta="lead"
+                data-track="true"
+              >
+                Quero meu Diagnóstico
+              </Link>
             </Button>
             <p className="mt-1 text-sm italic text-slate-300">
               O futuro das empresas eficientes é sob medida. A sua também pode ser.

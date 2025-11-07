@@ -37,7 +37,7 @@ const socialLinks = [
 
 export default function ObrigadoPage() {
   return (
-    <div className="flex min-h-screen w-full items-center justify-center bg-slate-950 p-4 sm:p-6 lg:p-8">
+    <main className="flex min-h-screen w-full items-center justify-center bg-slate-950 p-4 sm:p-6 lg:p-8">
       <div className="w-full max-w-5xl rounded-2xl border border-slate-800 bg-slate-900/80 p-7 sm:p-10 md:p-12">
         <div className="flex flex-col items-center text-center">
           {/* 1. Hero/Confirmação */}
@@ -94,23 +94,26 @@ export default function ObrigadoPage() {
             <p className="text-xs uppercase tracking-widest text-slate-500">
               Eficiência que liberta
             </p>
-            <div className="flex items-center gap-2">
-              {socialLinks.map((social) => (
-                <a
-                  key={social.name}
-                  href={social.href}
-                  aria-label={social.name}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="rounded-md p-2 text-slate-400 transition-colors hover:text-blue-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
-                >
-                  <social.icon className="h-5 w-5" />
-                </a>
-              ))}
-            </div>
+            <nav aria-label="Redes sociais">
+              <div className="flex items-center gap-2">
+                {socialLinks.map((social) => (
+                  <a
+                    key={social.name}
+                    href={social.href}
+                    aria-label={social.name}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="rounded-md p-2 text-slate-400 transition-colors hover:text-blue-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+                    data-track="true"
+                  >
+                    <social.icon className="h-5 w-5" aria-hidden="true" />
+                  </a>
+                ))}
+              </div>
+            </nav>
           </footer>
         </div>
       </div>
-    </div>
+    </main>
   );
 }
