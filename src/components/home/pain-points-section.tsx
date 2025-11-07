@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Hourglass, Unplug, Users, Repeat, Lightbulb } from "lucide-react";
+import { Hourglass, Unplug, Users, Repeat, Lightbulb } from "lucide-react";
 import { sectionContainerClass } from "./section-container";
 import Link from "next/link";
 import React from "react";
@@ -110,7 +110,7 @@ export function PainPointsSection() {
         <div className="mt-12 flex w-full max-w-md flex-col items-center gap-4">
           <Button
             asChild
-            className="inline-flex w-full items-center justify-center gap-2 rounded-md bg-orange-500 px-6 py-3 text-base font-semibold text-white shadow-lg shadow-orange-500/25 transition-transform hover:scale-[1.02] sm:w-auto"
+            className="inline-flex w-full items-center justify-center gap-2 rounded-md bg-orange-500 px-6 py-4 text-base font-semibold text-white shadow-lg shadow-orange-500/25 transition-transform hover:scale-[1.02] sm:w-auto"
             aria-label="Quero resolver isso agora"
           >
             <Link
@@ -120,7 +120,6 @@ export function PainPointsSection() {
               data-track="true"
             >
               Quero resolver isso agora
-              <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </Link>
           </Button>
         </div>

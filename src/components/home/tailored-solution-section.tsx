@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Workflow, Gauge, Sparkles, ShieldCheck } from "lucide-react";
+import { Workflow, Gauge, Sparkles, ShieldCheck } from "lucide-react";
 import { sectionContainerClass } from "./section-container";
 import Link from "next/link";
 
@@ -48,7 +48,7 @@ export function TailoredSolutionSection() {
 
             <Button
               asChild
-              className="mt-8 sm:mt-10 lg:mt-14 inline-flex w-fit items-center gap-2 rounded-md bg-blue-600 px-6 py-3 text-base font-semibold text-white shadow-lg shadow-blue-500/25 transition hover:bg-blue-500"
+              className="mt-8 sm:mt-10 lg:mt-14 inline-flex w-fit items-center gap-2 rounded-md bg-blue-600 px-6 py-4 text-base font-semibold text-white shadow-lg shadow-blue-500/25 transition hover:bg-blue-500"
             >
               <Link
                 href="/form"
@@ -57,7 +57,6 @@ export function TailoredSolutionSection() {
                 data-track="true"
               >
                 Quero entender o método
-                <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </Link>
             </Button>
           </div>

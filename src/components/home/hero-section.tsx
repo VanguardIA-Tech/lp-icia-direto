@@ -37,7 +37,7 @@ export function HeroSection() {
           <div className="flex flex-col items-start gap-3">
             <Button
               asChild
-              className="inline-flex items-center rounded-md bg-orange-500 px-5 py-3 text-base font-semibold text-white shadow-lg shadow-orange-500/30 transition hover:bg-orange-600 hover:shadow-[0_0_24px_rgba(47,118,255,.25)]"
+              className="inline-flex items-center rounded-md bg-orange-500 px-5 py-4 text-base font-semibold text-white shadow-lg shadow-orange-500/30 transition hover:bg-orange-600 hover:shadow-[0_0_24px_rgba(47,118,255,.25)]"
             >
               <Link href="/form" id="cta-hero" data-cta="lead" data-track="true">
                 Quero meu Diagnóstico
