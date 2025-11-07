@@ -21,9 +21,13 @@ export function HeroSection() {
       <div className="relative z-10 mx-auto h-full w-full max-w-7xl px-6 py-14 sm:py-20 lg:grid lg:grid-cols-12 lg:items-center lg:gap-10 lg:px-8">
         <div className="lg:col-span-7 flex flex-col gap-5">
           <h1 className="max-w-[560px] text-3xl font-extrabold leading-tight tracking-tight sm:text-4xl md:text-5xl lg:text-[44px]">
-            Transforme sua operação com sistemas personalizados de IA e automação integrados à sua realidade.
-            <span className="mt-2 block font-semibold text-blue-400">
-              Tudo feito para atender o SEU negócio.
+            Transforme sua operação com{" "}
+            <span className="bg-gradient-to-r from-orange-400 to-blue-400 bg-clip-text text-transparent">
+              sistemas personalizados de IA
+            </span>{" "}
+            e automação integrados à sua realidade.
+            <span className="mt-2 block font-semibold text-orange-400">
+              Tudo feito para atender o seu negócio.
             </span>
           </h1>
           <p className="max-w-[600px] text-base text-slate-200 sm:text-lg">
