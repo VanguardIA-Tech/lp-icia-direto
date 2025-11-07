@@ -5,6 +5,7 @@ import "./globals.css";
 import { Toaster } from "@/components/ui/sonner";
 import { ClientProvider } from "@/components/ClientProvider";
 import ClarityRouteTags from "@/components/ClarityRouteTags";
+import ClickTracker from "@/components/ClickTracker";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -53,6 +54,7 @@ export default function RootLayout({
       >
         <ClientProvider />
         <ClarityRouteTags variant="A" />
+        <ClickTracker />
         {children}
         <Toaster />
       </body>
