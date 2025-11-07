@@ -64,7 +64,7 @@ export function PainPointsSection() {
           </h2>
         </div>
 
-        <div className="mt-12 w-full max-w-4xl">
+        <div className="mt-12 max-w-4xl">
           {/* Timeline Container */}
           <div className="grid grid-cols-1 gap-x-12 md:grid-cols-[auto,1fr]">
             {/* Coluna da Espinha (Desktop) */}
