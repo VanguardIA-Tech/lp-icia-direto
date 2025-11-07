@@ -18,7 +18,7 @@ export function HeroSection() {
         className="absolute bottom-[-8%] right-[-12%] h-[80vw] w-[80vw] rounded-full bg-[#FF7A18]/[0.12] blur-[140px] lg:h-[60rem] lg:w-[60rem]"
       />
 
-      <div className="relative z-10 mx-auto h-full w-full max-w-7xl px-6 py-14 sm:py-20 lg:grid lg:grid-cols-12 lg:items-center lg:gap-10 lg:py-24">
+      <div className="relative z-10 mx-auto h-full w-full max-w-7xl px-6 py-14 sm:py-20 lg:grid lg:grid-cols-12 lg:items-center lg:gap-10 lg:px-8">
         <div className="lg:col-span-7 flex flex-col gap-5">
           <h1 className="max-w-[560px] text-3xl font-extrabold leading-tight tracking-tight sm:text-4xl md:text-5xl lg:text-[44px]">
             Transforme sua operação com sistemas personalizados de IA e automação integrados à sua realidade.
@@ -45,7 +45,7 @@ export function HeroSection() {
           </div>
         </div>
 
-        <div className="mt-10 flex justify-center lg:col-span-5 lg:mt-0 lg:h-full lg:justify-end">
+        <div className="mt-10 flex justify-center lg:col-span-5 lg:mt-0 lg:justify-end">
           <img
             src="/jorge3.webp"
             alt="Retrato de Jorge Auad"
