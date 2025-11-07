@@ -82,11 +82,46 @@ export default function FormPage() {
   const handlePrevStep = () => setStep(1);
 
   const onSubmit = async (values: FormValues) => {
-    console.table(values);
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-    await onSuccess(values.email);
-    toast.success("Formulário enviado com sucesso!");
-    router.push("/obrigado");
+    const webhookUrl = "https://automation.infra.vanguardia.cloud/webhook/funil-icia";
+    
+    let utms = {};
+    try {
+      const storedUtms = sessionStorage.getItem("vanguardia_utms");
+      if (storedUtms) {
+        utms = JSON.parse(storedUtms);
+      }
+    } catch (error) {
+      console.error("Failed to parse UTMs from sessionStorage", error);
+    }
+
+    const payload = {
+      ...values,
+      ...utms,
+    };
+
+    try {
+      const response = await fetch(webhookUrl, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      if (!response.ok) {
+        const errorBody = await response.text();
+        console.error("Webhook response error:", errorBody);
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      await onSuccess(values.email);
+      toast.success("Formulário enviado com sucesso!");
+      router.push("/obrigado");
+
+    } catch (error) {
+      console.error("Failed to submit form:", error);
+      toast.error("Ocorreu um erro ao enviar o formulário. Tente novamente.");
+    }
   };
 
   const onValidationErrors = (errors: FieldErrors<FormValues>) => {
