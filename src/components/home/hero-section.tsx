@@ -7,22 +7,22 @@ export function HeroSection() {
       {/* Aurora Mesh Blobs */}
       <div
         aria-hidden="true"
-        className="absolute left-[12%] top-[22%] h-[60vw] w-[60vw] rounded-full bg-[#2F76FF]/[0.25] blur-[100px] lg:h-[48rem] lg:w-[48rem]"
+        className="absolute left-[12%] top-[22%] h-[60vw] w-[60vw] rounded-full bg-[#2F76FF]/[0.35] blur-[100px] lg:h-[48rem] lg:w-[48rem]"
       />
       <div
         aria-hidden="true"
-        className="absolute right-[10%] top-[30%] h-[48vw] w-[48vw] rounded-full bg-[#6EE7F9]/[0.18] blur-[100px] lg:h-[34rem] lg:w-[34rem]"
+        className="absolute right-[10%] top-[30%] h-[48vw] w-[48vw] rounded-full bg-[#6EE7F9]/[0.25] blur-[100px] lg:h-[34rem] lg:w-[34rem]"
       />
       <div
         aria-hidden="true"
-        className="absolute bottom-[-8%] right-[-12%] h-[80vw] w-[80vw] rounded-full bg-[#FF7A18]/[0.12] blur-[140px] lg:h-[60rem] lg:w-[60rem]"
+        className="absolute bottom-[-8%] right-[-12%] h-[80vw] w-[80vw] rounded-full bg-[#FF7A18]/[0.20] blur-[140px] lg:h-[60rem] lg:w-[60rem]"
       />
 
       <div className="relative z-10 mx-auto h-full w-full max-w-7xl px-6 py-14 sm:py-20 lg:grid lg:grid-cols-12 lg:items-center lg:gap-10 lg:px-8">
         <div className="lg:col-span-7 flex flex-col gap-5">
           <h1 className="max-w-[560px] text-3xl font-extrabold leading-tight tracking-tight sm:text-4xl md:text-5xl lg:text-[44px]">
             Transforme sua operação com{" "}
-            <span className="bg-gradient-to-r from-orange-400 to-blue-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-orange-500 via-[#EB91CD] to-blue-500 bg-clip-text text-transparent">
               sistemas personalizados de IA
             </span>{" "}
             e automação integrados à sua realidade.
@@ -37,7 +37,7 @@ export function HeroSection() {
           <div className="flex flex-col items-start gap-3">
             <Button
               asChild
-              className="inline-flex items-center rounded-md bg-orange-500 px-5 py-6 text-base font-semibold text-white shadow-lg shadow-orange-500/30 transition hover:bg-orange-600 hover:shadow-[0_0_24px_rgba(47,118,255,.25)]"
+              className="inline-flex items-center rounded-md bg-orange-500 px-5 py-3 text-base font-semibold text-white shadow-lg shadow-orange-500/30 transition hover:bg-orange-600 hover:shadow-[0_0_24px_rgba(47,118,255,.25)]"
             >
               <Link href="/form" id="cta-hero" data-cta="lead" data-track="true">
                 Quero meu Diagnóstico
