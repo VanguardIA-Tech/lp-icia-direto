@@ -7,6 +7,7 @@ import { Toaster } from "@/components/ui/sonner";
 import { ClientProvider } from "@/components/ClientProvider";
 import ClarityRouteTags from "@/components/ClarityRouteTags";
 import ClickTracker from "@/components/ClickTracker";
+import { UtmCollector } from "@/components/UtmCollector";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -56,6 +57,7 @@ export default function RootLayout({
         <ClientProvider />
         <Suspense fallback={null}>
           <ClarityRouteTags variant="A" />
+          <UtmCollector />
         </Suspense>
         <ClickTracker />
         {children}
