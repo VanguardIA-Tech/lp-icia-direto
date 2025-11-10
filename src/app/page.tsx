@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { TopBanner } from "@/components/home/top-banner";
 import { HeroSection } from "@/components/home/hero-section";
@@ -20,10 +19,12 @@ const floatingCTAClasses =
 export default function Home() {
   return (
     <div className="bg-slate-950 text-slate-100">
-      <TopBanner />
+      <div className="flex h-[90vh] flex-col">
+        <TopBanner />
+        <HeroSection />
+      </div>
 
       <main className="flex flex-col">
-        <HeroSection />
         <PainPointsSection />
         <SelectionCriteriaSection />
         <TailoredSolutionSection />
@@ -37,7 +38,7 @@ export default function Home() {
 
       <Button
         asChild
-        className={`${floatingCTAClasses} rounded-md bg-orange-500 px-6 py-3 text-base font-semibold text-white hover:bg-orange-600`}
+        className={`${floatingCTAClasses} rounded-md bg-orange-500 px-6 py-6 text-base font-semibold text-white hover:bg-orange-600`}
       >
         <Link
           href="/form"
@@ -46,7 +47,6 @@ export default function Home() {
           data-track="true"
         >
           Agendar Diagnóstico de Eficiência com IA
-          <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
         </Link>
       </Button>
     </div>
