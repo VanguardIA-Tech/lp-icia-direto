@@ -20,17 +20,20 @@ export function LeaderSection() {
             </p>
           </div>
 
-          {/* Coluna direita: imagem com altura fixa de 500px em desktop */}
-          <div className="relative flex justify-center md:h-[500px] md:justify-end">
-            <div className="mt-8 w-full max-w-[320px] sm:max-w-[360px] md:mt-0 md:h-full md:max-w-full">
+          {/* Coluna direita: imagem dentro de um card */}
+          <div className="relative flex justify-center md:justify-end">
+            <div className="
+              mt-8 w-full max-w-sm overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/70 p-4 shadow-lg
+              md:mt-0 md:max-w-full
+            ">
               <Image
-                src="/jorge.webp"
+                src="/jorge4.webp"
                 alt="Jorge Antonio Auad Filho"
                 width={800}
                 height={1000}
                 loading="lazy"
                 sizes="(min-width: 768px) 40vw, 90vw"
-                className="h-full w-full rounded-2xl object-contain object-bottom"
+                className="h-full w-full rounded-lg object-cover object-top"
                 priority={false}
               />
             </div>
