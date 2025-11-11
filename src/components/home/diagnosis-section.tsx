@@ -86,14 +86,25 @@ export function DiagnosisSection() {
         </div>
 
         {/* Coluna Auxiliar (Painel Visual) */}
-        <div className="relative hidden h-full min-h-[320px] items-end justify-center rounded-2xl border border-slate-800 bg-slate-950/50 p-6 md:flex">
+        <div className="relative hidden h-full min-h-[320px] overflow-hidden rounded-2xl border border-slate-800 bg-slate-950/50 md:flex">
+          <video
+            src="https://res.cloudinary.com/dcg2hwh7x/video/upload/v1762886107/copy_33173A90-9720-4B2B-9894-1BBBE2C26924_shdgu8.webm"
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="metadata"
+            className="absolute inset-0 h-full w-full object-cover"
+          />
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-b from-transparent to-blue-950/40"
+            className="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-950/80 to-transparent"
           />
-          <p className="text-center text-sm text-slate-400">
-            Análise personalizada para empresas com 30 a 1000 colaboradores.
-          </p>
+          <div className="relative z-10 flex h-full w-full items-end justify-center p-6">
+            <p className="text-center text-sm text-slate-300">
+              Análise personalizada para empresas com 30 a 1000 colaboradores.
+            </p>
+          </div>
         </div>
       </div>
     </section>
