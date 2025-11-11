@@ -22,7 +22,7 @@ export function HeroSection() {
         <div className="lg:col-span-7 flex flex-col gap-5">
           <h1 className="max-w-[560px] text-3xl font-extrabold leading-tight tracking-tight sm:text-4xl md:text-5xl lg:text-[44px]">
             Transforme sua operação com{" "}
-            <span className="bg-gradient-to-r from-orange-500 via-[#EB91CD] to-blue-500 bg-clip-text text-transparent">
+            <span className="text-orange-400">
               sistemas personalizados de IA
             </span>{" "}
             e automação integrados à sua realidade.
