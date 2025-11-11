@@ -23,7 +23,8 @@ export function LeaderSection() {
           {/* Coluna direita: imagem dentro de um card */}
           <div className="relative flex justify-center md:justify-end">
             <div className="
-              mt-8 w-full max-w-sm overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/70 p-4 shadow-lg
+              mt-8 w-full max-w-sm overflow-hidden rounded-2xl border border-slate-700 bg-slate-900/70 shadow-lg
+              transition-all duration-300 hover:border-blue-500/40 hover:shadow-xl hover:shadow-blue-500/20
               md:mt-0 md:max-w-full
             ">
               <Image
@@ -33,7 +34,7 @@ export function LeaderSection() {
                 height={1000}
                 loading="lazy"
                 sizes="(min-width: 768px) 40vw, 90vw"
-                className="h-full w-full rounded-lg object-cover object-top"
+                className="h-full w-full object-cover object-top"
                 priority={false}
               />
             </div>
