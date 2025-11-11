@@ -100,11 +100,6 @@ export function DiagnosisSection() {
             aria-hidden="true"
             className="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-950/80 to-transparent"
           />
-          <div className="relative z-10 flex h-full w-full items-end justify-center p-6">
-            <p className="text-center text-sm text-slate-300">
-              Análise personalizada para empresas com 30 a 1000 colaboradores.
-            </p>
-          </div>
         </div>
       </div>
     </section>
