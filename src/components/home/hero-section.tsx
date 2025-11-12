@@ -49,11 +49,11 @@ export function HeroSection() {
           </div>
         </div>
 
-        <div className="mt-10 flex justify-center lg:col-span-5 lg:mt-0 lg:justify-end">
+        <div className="mt-10 flex justify-center self-end lg:col-span-5 lg:mt-0 lg:h-full lg:items-end lg:justify-end">
           <img
             src="/jorge3.webp"
             alt="Retrato de Jorge Auad"
-            className="h-auto max-h-[50vh] w-auto max-w-full object-contain object-bottom lg:h-full lg:max-h-none"
+            className="h-auto max-h-[50vh] w-auto max-w-full self-end object-contain object-bottom lg:max-h-none"
           />
         </div>
       </div>
