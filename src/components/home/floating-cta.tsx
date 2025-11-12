@@ -19,12 +19,13 @@ export function FloatingCta() {
         <Button
           asChild
           className="
-            h-14 rounded-md bg-orange-500 px-6 text-base font-semibold text-white
+            h-auto w-full rounded-md bg-orange-500 px-6 py-3 text-center text-base font-semibold text-white
             shadow-lg shadow-orange-500/30 transition-all duration-300
             hover:bg-orange-600 hover:shadow-[0_0_24px_rgba(255,122,24,.25)]
             focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-400
             focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950
             active:scale-[0.98]
+            sm:w-auto
           "
         >
           <Link
@@ -33,7 +34,7 @@ export function FloatingCta() {
             data-cta="lead"
             data-track="true"
           >
-            Quero meu Diagnóstico Gratuito
+            Quero meu Diagnóstico de Eficiência com IA
           </Link>
         </Button>
       </div>
