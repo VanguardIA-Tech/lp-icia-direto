@@ -19,7 +19,7 @@ const floatingCTAClasses =
 export default function Home() {
   return (
     <div className="bg-slate-950 text-slate-100">
-      <div className="flex h-[90vh] flex-col">
+      <div className="flex min-h-screen flex-col">
         <TopBanner />
         <HeroSection />
       </div>
