@@ -20,7 +20,7 @@ export default function Home() {
   return (
     <div className="bg-slate-950 text-slate-100">
       {/* Dobra inicial: Banner + Hero limitados a 90vh */}
-      <div className="flex h-[90vh] flex-col">
+      <div className="flex h-[90vh] min-h-0 flex-col">
         <TopBanner />
         {/* Hero preenche o restante da altura dos 90vh */}
         <HeroSection />
