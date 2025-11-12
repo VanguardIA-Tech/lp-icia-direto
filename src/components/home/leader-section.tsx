@@ -55,7 +55,7 @@ export function LeaderSection() {
               md:mt-0 md:max-w-full
             ">
               <Image
-                src="/jorge4.webp"
+                src="/jorge5.webp"
                 alt="Jorge Antonio Auad Filho"
                 width={800}
                 height={1000}
