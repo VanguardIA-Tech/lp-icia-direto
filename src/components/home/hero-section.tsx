@@ -18,7 +18,8 @@ export function HeroSection() {
         className="absolute bottom-[-8%] right-[-12%] h-[80vw] w-[80vw] rounded-full bg-[#FF7A18]/[0.20] blur-[140px] lg:h-[60rem] lg:w-[60rem]"
       />
 
-      <div className="relative z-10 mx-auto flex h-full min-h-0 w-full max-w-7xl flex-col justify-center gap-8 px-6 py-8 sm:gap-10 sm:py-10 lg:grid lg:grid-cols-12 lg:items-center lg:gap-10 lg:px-24 lg:py-0">
+      {/* Mobile: texto no topo e imagem no fim; Desktop: grid alinhado */}
+      <div className="relative z-10 mx-auto flex h-full min-h-0 w-full max-w-7xl flex-col justify-between gap-8 px-6 py-8 sm:gap-10 sm:py-10 lg:grid lg:grid-cols-12 lg:items-center lg:gap-10 lg:px-24 lg:py-0">
         {/* Coluna esquerda */}
         <div className="flex flex-col gap-4 text-center sm:text-left lg:col-span-7 lg:flex lg:h-full lg:justify-center">
           <h1 className="mx-auto max-w-[560px] text-balance text-3xl font-extrabold leading-tight tracking-tight sm:mx-0 sm:text-4xl md:text-[42px] lg:text-[44px]">
@@ -52,11 +53,11 @@ export function HeroSection() {
         </div>
 
         {/* Coluna direita */}
-        <div className="mt-6 flex justify-center lg:col-span-5 lg:mt-0 lg:h-full lg:items-end lg:justify-end">
+        <div className="flex justify-center lg:col-span-5 lg:justify-end">
           <img
             src="/jorge3.webp"
             alt="Retrato de Jorge Auad"
-            className="h-full max-h-[320px] w-auto object-contain object-bottom sm:max-h-[360px] md:max-h-[400px] lg:max-h-[460px] xl:max-h-[520px]"
+            className="h-auto w-auto max-w-full max-h-full sm:max-h-[360px] md:max-h-[400px] lg:max-h-[460px] xl:max-h-[520px] object-contain object-bottom"
           />
         </div>
       </div>
