@@ -1,35 +1,63 @@
-import { ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { CheckCircle } from "lucide-react";
 import Link from "next/link";
+import { sectionContainerClass } from "./section-container";
+
+const painPoints = [
+  "Sistemas legados e planilhas que travam a operação.",
+  "Falta de visibilidade e dados confiáveis para decidir.",
+  "Processos manuais, repetitivos e com alto risco de erro.",
+  "Equipes sobrecarregadas com tarefas de baixo valor.",
+  "Dificuldade em escalar sem aumentar custos na mesma proporção.",
+  "Tecnologia que não acompanha a evolução do negócio.",
+] as const;
 
 export function PainPointsSection() {
   return (
-    <section className="bg-gray-50 py-16 sm:py-24">
-      <div className="container mx-auto px-4">
-        <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-            Seus desafios de gestão de projetos acabam aqui.
+    <section className="bg-slate-950 py-16 sm:py-24">
+      <div className={sectionContainerClass}>
+        <div className="mx-auto max-w-3xl text-center">
+          <h2 className="text-2xl font-semibold text-slate-50 sm:text-3xl">
+            Sua empresa está pronta para o próximo nível, mas a operação não acompanha?
           </h2>
-          <p className="mt-4 text-lg leading-8 text-gray-600">
-            Pare de perder tempo com planilhas desorganizadas e ferramentas
-            complexas. O Dyad simplifica a gestão, permitindo que você se
-            concentre no que realmente importa: entregar resultados.
+          <p className="mt-4 text-base text-slate-300 sm:text-lg">
+            Se você se identifica com algum destes desafios, a VanguardIA pode ser a parceira
+            estratégica que faltava para destravar seu crescimento.
           </p>
-          <div className="mt-10 flex justify-center">
+        </div>
+
+        <div className="mx-auto mt-12 grid max-w-4xl grid-cols-1 gap-x-8 gap-y-4 sm:grid-cols-2 lg:mt-16">
+          {painPoints.map((point) => (
+            <div key={point} className="flex items-start gap-3 text-center sm:text-left">
+              <CheckCircle
+                className="mt-1 h-5 w-5 flex-shrink-0 text-blue-500"
+                aria-hidden="true"
+              />
+              <span className="text-base text-slate-200">{point}</span>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-12 flex justify-center sm:mt-16">
+          <Button
+            asChild
+            className="h-auto rounded-md bg-blue-600 px-5 py-3 text-lg font-semibold text-white shadow-lg transition-all duration-300 hover:bg-blue-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 active:scale-[0.98] sm:h-18 sm:px-9 sm:py-0 sm:text-2xl"
+          >
             <Link
-              href="/agendar-demonstracao"
-              className="inline-flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-4 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
+              href="/form"
+              id="cta-pain-points"
+              data-cta="primary"
+              data-track="true"
+              className="text-center leading-tight"
             >
-              <span className="hidden sm:inline">
-                Quero agendar uma demonstração
-              </span>
+              <span className="hidden sm:inline">Quero agendar uma demonstração</span>
               <span className="sm:hidden">
                 Quero agendar
                 <br />
                 uma demonstração
               </span>
-              <ArrowRight className="ml-2 h-5 w-5" />
             </Link>
-          </div>
+          </Button>
         </div>
       </div>
     </section>
