@@ -41,7 +41,7 @@ export function PainPointsSection() {
         <div className="mt-12 flex justify-center sm:mt-16">
           <Button
             asChild
-            className="h-auto rounded-md bg-blue-600 px-6 py-4 text-2xl font-semibold text-white shadow-lg transition-all duration-300 hover:bg-blue-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 active:scale-[0.98] sm:h-18 sm:px-9 sm:py-0"
+            className="h-auto rounded-md bg-blue-600 px-5 py-3 text-lg font-semibold text-white shadow-lg transition-all duration-300 hover:bg-blue-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 active:scale-[0.98] sm:h-18 sm:px-9 sm:py-0 sm:text-2xl"
           >
             <Link
               href="/form"
