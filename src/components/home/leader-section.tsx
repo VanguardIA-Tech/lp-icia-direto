@@ -1,72 +1,73 @@
 import Image from "next/image";
-import { Button } from "../ui/button";
-import Link from "next/link";
+import { sectionContainerClass } from "./section-container";
 
 export function LeaderSection() {
   return (
-    <section className="w-full py-12 md:py-24 lg:py-32 bg-gray-100 dark:bg-gray-800">
-      <div className="container px-4 md:px-6">
-        <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
-          <div className="flex flex-col justify-center space-y-4">
-            <div className="space-y-2">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-                Liderança e Experiência
-              </h2>
-              <p className="max-w-[600px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
-                Conheça Jorge Antonio Auad Filho, um líder com vasta experiência
-                e dedicação em transformar a gestão pública e privada.
-              </p>
-            </div>
-            <ul className="grid gap-2 py-4">
-              <li>
-                <CheckIcon className="mr-2 inline-block h-4 w-4 text-blue-500" />
-                Mais de 20 anos de experiência em gestão.
-              </li>
-              <li>
-                <CheckIcon className="mr-2 inline-block h-4 w-4 text-blue-500" />
-                Foco em eficiência e resultados.
-              </li>
-              <li>
-                <CheckIcon className="mr-2 inline-block h-4 w-4 text-blue-500" />
-                Compromisso com a inovação e transparência.
-              </li>
-            </ul>
-            <div className="flex flex-col gap-2 min-[400px]:flex-row">
-              <Link href="/about">
-                <Button>Saiba Mais</Button>
-              </Link>
-            </div>
+    <section className="bg-slate-950 py-12 sm:py-16">
+      <div className={`${sectionContainerClass} gap-8`}>
+        {/* Grid com itens alinhados ao topo */}
+        <div className="grid items-start gap-10 md:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)] lg:gap-16">
+          {/* Coluna esquerda: hierarquia e ritmo com texto maior */}
+          <div className="space-y-5 text-center sm:space-y-6 md:text-left">
+            <h2 className="text-balance text-3xl font-semibold leading-tight text-slate-50 sm:text-4xl lg:text-5xl">
+              <span className="font-bold text-orange-400">Quem lidera</span> o movimento de{" "}
+              <span className="font-bold text-orange-400">Eficiência Inteligente no Brasil</span>.
+            </h2>
+            <p className="text-base leading-relaxed text-slate-300 sm:text-lg">
+              Empresário e estrategista,{" "}
+              <span className="font-semibold text-slate-100">Jorge Antonio Auad Filho</span> é
+              fundador do{" "}
+              <span className="font-semibold text-slate-100">Grupo VanguardIA</span> — a{" "}
+              <span className="font-semibold text-slate-100">
+                primeira aceleradora empresarial de IA do Norte do Brasil
+              </span>
+              . Reconhecido por sua{" "}
+              <span className="font-semibold text-slate-100">abordagem prática e humana</span>, já
+              ajudou centenas de negócios a{" "}
+              <span className="font-semibold text-slate-100">
+                dobrarem sua eficiência e margem
+              </span>
+              . Criador dos{" "}
+              <span className="font-semibold text-slate-100">
+                métodos CNH da IA, COPA e CTC
+              </span>
+              , que hoje formam a base do{" "}
+              <span className="font-semibold text-slate-100">
+                movimento Eficiência que Liberta
+              </span>
+              .
+            </p>
+            <p className="text-base italic text-slate-200 sm:text-lg">
+              “IA não substitui pessoas.{" "}
+              <span className="relative pb-1">
+                Liberta o potencial delas.
+                <span className="absolute bottom-0 left-0 h-[2px] w-full rounded-full bg-gradient-to-r from-blue-500/30 to-cyan-400/30" />
+              </span>
+              ”
+            </p>
           </div>
-          <div className="mx-auto aspect-square overflow-hidden rounded-xl object-cover sm:w-full lg:order-last">
-            <Image
-              src="/jorg5.webp"
-              alt="Jorge Antonio Auad Filho"
-              width={800}
-              height={800}
-              className="h-full w-full object-cover"
-            />
+
+          {/* Coluna direita: imagem dentro de um card */}
+          <div className="relative flex justify-center md:justify-end">
+            <div className="
+              mt-8 w-[85%] max-w-sm overflow-hidden rounded-2xl border border-slate-700 bg-slate-900/70 shadow-lg
+              transition-all duration-300 hover:border-blue-500/40 hover:shadow-xl hover:shadow-blue-500/20
+              md:mt-0 md:max-w-full
+            ">
+              <Image
+                src="/jorge4.webp"
+                alt="Jorge Antonio Auad Filho"
+                width={800}
+                height={1000}
+                loading="lazy"
+                sizes="(min-width: 768px) 40vw, 90vw"
+                className="h-full w-full object-cover object-top"
+                priority={false}
+              />
+            </div>
           </div>
         </div>
       </div>
     </section>
-  );
-}
-
-function CheckIcon(props: React.SVGProps<SVGSVGElement>) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="M20 6 9 17l-5-5" />
-    </svg>
   );
 }
