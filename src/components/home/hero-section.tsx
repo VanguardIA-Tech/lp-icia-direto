@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export function HeroSection() {
   return (
-    <section className="relative flex-1 min-h-0 overflow-hidden bg-[#0B1220] text-white">
+    <section className="relative flex flex-1 min-h-0 overflow-hidden bg-[#0B1220] text-white">
       {/* Aurora Mesh Blobs */}
       <div
         aria-hidden="true"
@@ -18,11 +18,10 @@ export function HeroSection() {
         className="absolute bottom-[-8%] right-[-12%] h-[80vw] w-[80vw] rounded-full bg-[#FF7A18]/[0.20] blur-[140px] lg:h-[60rem] lg:w-[60rem]"
       />
 
-      {/* Mobile: coluna da imagem continua ao fim; em desktop usamos grid */}
-      <div className="relative z-10 mx-auto flex h-full min-h-0 w-full max-w-7xl flex-col justify-between overflow-y-auto px-6 pt-14 pb-0 sm:pt-20 sm:pb-0 lg:grid lg:grid-cols-12 lg:items-end lg:gap-10 lg:overflow-y-auto lg:px-8">
-        {/* Coluna esquerda (texto) – centralizada verticalmente em desktop */}
-        <div className="flex flex-col gap-5 text-center sm:text-left lg:col-span-7 lg:flex lg:h-full lg:justify-center">
-          <h1 className="mx-auto max-w-[560px] text-3xl font-extrabold leading-tight tracking-tight sm:mx-0 sm:text-4xl md:text-5xl lg:text-[44px]">
+      <div className="relative z-10 mx-auto flex h-full min-h-0 w-full max-w-7xl flex-col justify-center gap-8 px-6 py-8 sm:gap-10 sm:py-10 lg:grid lg:grid-cols-12 lg:items-center lg:gap-10 lg:px-8 lg:py-0">
+        {/* Coluna esquerda */}
+        <div className="flex flex-col gap-4 text-center sm:text-left lg:col-span-7 lg:flex lg:h-full lg:justify-center">
+          <h1 className="mx-auto max-w-[560px] text-balance text-3xl font-extrabold leading-tight tracking-tight sm:mx-0 sm:text-4xl md:text-[42px] lg:text-[44px]">
             Transforme sua operação com{" "}
             <span className="text-orange-400">sistemas personalizados de IA</span> e automação
             integrados à sua realidade.
@@ -30,6 +29,7 @@ export function HeroSection() {
               Tudo feito para atender o seu negócio.
             </span>
           </h1>
+
           <p className="mx-auto max-w-[600px] text-base text-slate-200 sm:mx-0 sm:text-lg">
             O Programa ICIA (Inteligência Corporativa Integrada com Automação) é a aceleração que
             redesenha processos, integra pessoas e instala cultura de eficiência com IA. Sem precisar
@@ -51,12 +51,12 @@ export function HeroSection() {
           </div>
         </div>
 
-        {/* Coluna direita (imagem) - grudada no fundo */}
-        <div className="flex h-full items-end justify-center lg:col-span-5 lg:justify-end">
+        {/* Coluna direita */}
+        <div className="mt-6 flex justify-center lg:col-span-5 lg:mt-0 lg:h-full lg:items-end lg:justify-end">
           <img
             src="/jorge3.webp"
             alt="Retrato de Jorge Auad"
-            className="h-auto w-auto max-w-full object-contain object-bottom"
+            className="h-full max-h-[320px] w-auto object-contain object-bottom sm:max-h-[360px] md:max-h-[400px] lg:max-h-[460px] xl:max-h-[520px]"
           />
         </div>
       </div>
