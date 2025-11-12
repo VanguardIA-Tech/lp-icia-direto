@@ -109,7 +109,7 @@ export function TailoredSolutionSection() {
 
             <Button
               asChild
-              className="mt-8 h-14 rounded-md bg-gradient-to-r from-[#2F76FF] to-[#FF7A18] px-6 text-base font-semibold text-white shadow-lg transition-all duration-300 hover:brightness-110 hover:shadow-[0_0_24px_rgba(255,122,24,0.25)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 active:scale-[0.98] sm:mt-10 lg:mt-14"
+              className="mt-8 h-14 rounded-md bg-[#FF7A18] px-6 text-base font-semibold text-white shadow-lg transition-all duration-300 hover:brightness-110 hover:shadow-[0_0_24px_rgba(255,122,24,0.25)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 active:scale-[0.98] sm:mt-10 lg:mt-14"
             >
               <Link
                 href="/form"
