@@ -19,10 +19,10 @@ export function HeroSection() {
       />
 
       {/* Em mobile: flex-col + justify-between para colar a imagem no fundo.
-         Em desktop (lg+): grid com 2 colunas e alinhamento inferior. */}
+         Em desktop (lg+): grid com 2 colunas; coluna esquerda centralizada verticalmente e imagem no fundo. */}
       <div className="relative z-10 mx-auto h-full w-full max-w-7xl px-6 pt-14 pb-0 sm:pt-20 sm:pb-0 flex min-h-full flex-col justify-between lg:grid lg:min-h-full lg:grid-cols-12 lg:items-end lg:gap-10 lg:px-8">
-        {/* Coluna esquerda (texto) */}
-        <div className="flex flex-col gap-5 text-center sm:text-left lg:col-span-7">
+        {/* Coluna esquerda (texto) – centralizada verticalmente em desktop */}
+        <div className="flex flex-col gap-5 text-center sm:text-left lg:col-span-7 lg:self-center">
           <h1 className="mx-auto max-w-[560px] text-3xl font-extrabold leading-tight tracking-tight sm:mx-0 sm:text-4xl md:text-5xl lg:text-[44px]">
             Transforme sua operação com{" "}
             <span className="text-orange-400">sistemas personalizados de IA</span> e automação
