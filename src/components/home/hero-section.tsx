@@ -19,9 +19,9 @@ export function HeroSection() {
       />
 
       {/* Mobile (flex) / Desktop (grid) */}
-      <div className="relative z-10 mx-auto flex h-full min-h-0 w-full max-w-7xl flex-col justify-between gap-8 px-6 py-8 sm:gap-10 sm:py-10 lg:grid lg:grid-cols-12 lg:items-center lg:gap-10 lg:px-24 lg:py-0">
-        {/* Coluna esquerda */}
-        <div className="flex flex-col gap-4 text-center sm:text-left lg:col-span-7 lg:flex lg:h-full lg:justify-center">
+      <div className="relative z-10 mx-auto flex h-full min-h-0 w-full max-w-7xl flex-col justify-between gap-8 px-6 sm:gap-10 lg:grid lg:grid-cols-12 lg:items-center lg:gap-10 lg:px-24 lg:py-0">
+        {/* Coluna esquerda (Texto e CTA) */}
+        <div className="flex flex-col gap-4 text-center sm:text-left lg:col-span-7 lg:flex lg:h-full lg:justify-center py-8 sm:py-10 lg:py-0">
           <h1 className="mx-auto max-w-[560px] text-balance text-3xl font-extrabold leading-tight tracking-tight sm:mx-0 sm:text-4xl md:text-[42px] lg:text-[44px]">
             Transforme sua operação com{" "}
             <span className="text-orange-400">sistemas personalizados de IA</span> e automação
@@ -50,7 +50,7 @@ export function HeroSection() {
           </div>
         </div>
 
-        {/* Coluna direita */}
+        {/* Coluna direita (Imagem) */}
         <div className="mt-auto flex justify-center lg:col-span-5 lg:mt-0 lg:h-full lg:items-end lg:justify-end">
           <img
             src="/jorge3.webp"
