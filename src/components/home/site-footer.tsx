@@ -20,9 +20,9 @@ export function SiteFooter() {
               <Image
                 src="/vanguardia-logo.png"
                 alt="VanguardIA Logo"
-                width={207}
-                height={44}
-                className="h-11 w-auto"
+                width={311}
+                height={66}
+                className="h-[66px] w-auto"
                 priority={false}
               />
             </Link>
@@ -53,7 +53,7 @@ export function SiteFooter() {
         </div>
 
         {/* Linha Inferior */}
-        <div className="mt-10 border-t border-slate-800 pt-8 text-center">
+        <div className="border-t border-slate-800 pt-8 text-center">
           <p className="text-xs uppercase tracking-widest text-slate-500">
             “VanguardIA — Inteligência Aplicada à Prosperidade.”
           </p>

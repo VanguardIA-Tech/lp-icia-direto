@@ -10,7 +10,7 @@ export function DiagnosisSection() {
         className={`${sectionContainerClass} grid items-start gap-12 md:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)] lg:gap-16`}
       >
         {/* Coluna de Texto */}
-        <div className="flex flex-col items-start gap-5">
+        <div className="flex flex-col items-center gap-5 text-center md:items-start md:text-left">
           <h2 className="max-w-xl text-3xl font-bold leading-tight text-slate-50 sm:text-4xl">
             Descubra onde a <span className="text-blue-400">IA</span> pode{" "}
             <span className="text-orange-400">liberar horas</span> e{" "}
@@ -86,14 +86,20 @@ export function DiagnosisSection() {
         </div>
 
         {/* Coluna Auxiliar (Painel Visual) */}
-        <div className="relative hidden h-full min-h-[320px] items-end justify-center rounded-2xl border border-slate-800 bg-slate-950/50 p-6 md:flex">
+        <div className="relative hidden h-full min-h-[320px] overflow-hidden rounded-2xl border border-slate-800 bg-slate-950/50 md:flex">
+          <video
+            src="https://res.cloudinary.com/dcg2hwh7x/video/upload/v1762886107/copy_33173A90-9720-4B2B-9894-1BBBE2C26924_shdgu8.webm"
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="metadata"
+            className="absolute inset-0 h-full w-full object-cover"
+          />
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-b from-transparent to-blue-950/40"
+            className="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-950/80 to-transparent"
           />
-          <p className="text-center text-sm text-slate-400">
-            Análise personalizada para empresas com 30 a 1000 colaboradores.
-          </p>
         </div>
       </div>
     </section>

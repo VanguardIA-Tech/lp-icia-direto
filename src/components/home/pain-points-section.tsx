@@ -1,125 +1,61 @@
 import { Button } from "@/components/ui/button";
-import { Hourglass, Unplug, Users, Repeat, Lightbulb } from "lucide-react";
-import { sectionContainerClass } from "./section-container";
+import { CheckCircle } from "lucide-react";
 import Link from "next/link";
-import React from "react";
+import { sectionContainerClass } from "./section-container";
 
 const painPoints = [
-  {
-    icon: Hourglass,
-    text: (
-      <>
-        <strong>Processos lentos</strong>, <strong>manuais e repetitivos</strong> que consomem tempo
-        precioso.
-      </>
-    ),
-  },
-  {
-    icon: Unplug,
-    text: (
-      <>
-        <strong>Softwares caros</strong> que <strong>não conversam</strong> entre si, gerando ilhas
-        de informação.
-      </>
-    ),
-  },
-  {
-    icon: Users,
-    text: (
-      <>
-        <strong>Equipes sobrecarregadas</strong> e <strong>desalinhadas</strong>, presas em tarefas
-        de baixo valor.
-      </>
-    ),
-  },
-  {
-    icon: Repeat,
-    text: (
-      <>
-        <strong>Retrabalho</strong> e <strong>gargalos</strong> constantes entre áreas que minam a
-        produtividade.
-      </>
-    ),
-  },
-  {
-    icon: Lightbulb,
-    text: (
-      <>
-        <strong>Falta de tempo</strong> para o estratégico: <strong>pensar e inovar</strong> no
-        negócio.
-      </>
-    ),
-  },
-];
+  "Sistemas legados e planilhas que travam a operação.",
+  "Falta de visibilidade e dados confiáveis para decidir.",
+  "Processos manuais, repetitivos e com alto risco de erro.",
+  "Equipes sobrecarregadas com tarefas de baixo valor.",
+  "Dificuldade em escalar sem aumentar custos na mesma proporção.",
+  "Tecnologia que não acompanha a evolução do negócio.",
+] as const;
 
 export function PainPointsSection() {
   return (
     <section className="bg-slate-950 py-16 sm:py-24">
-      <div className={`${sectionContainerClass} items-center`}>
+      <div className={sectionContainerClass}>
         <div className="mx-auto max-w-3xl text-center">
-          <h2 className="text-3xl font-bold leading-tight text-slate-50 sm:text-4xl">
-            Você sente que sua empresa <span className="text-orange-400">trabalha demais</span> para{" "}
-            <span className="text-orange-400">entregar bem menos</span> do que{" "}
-            <span className="text-blue-400">poderia</span>?
+          <h2 className="text-2xl font-semibold text-slate-50 sm:text-3xl">
+            Sua empresa está pronta para o próximo nível, mas a operação não acompanha?
           </h2>
+          <p className="mt-4 text-base text-slate-300 sm:text-lg">
+            Se você se identifica com algum destes desafios, a VanguardIA pode ser a parceira
+            estratégica que faltava para destravar seu crescimento.
+          </p>
         </div>
 
-        <div className="mt-12 max-w-4xl">
-          {/* Timeline Container */}
-          <div className="grid grid-cols-1 gap-x-12 md:grid-cols-[auto,1fr]">
-            {/* Coluna da Espinha (Desktop) */}
-            <div className="relative hidden md:block">
-              <div
-                className="absolute left-1/2 top-14 bottom-14 w-0.5 -translate-x-1/2 bg-slate-800"
+        <div className="mx-auto mt-12 grid max-w-4xl grid-cols-1 gap-x-8 gap-y-4 sm:grid-cols-2 lg:mt-16">
+          {painPoints.map((point) => (
+            <div key={point} className="flex items-start gap-3 text-center sm:text-left">
+              <CheckCircle
+                className="mt-1 h-5 w-5 flex-shrink-0 text-blue-500"
                 aria-hidden="true"
               />
-              <div className="relative flex h-full flex-col gap-4">
-                {painPoints.map((_, index) => (
-                  <div
-                    key={`bullet-container-${index}`}
-                    className="flex h-28 items-center justify-center"
-                  >
-                    <div className="h-3 w-3 rounded-full bg-blue-500 ring-4 ring-blue-500/10" />
-                  </div>
-                ))}
-              </div>
+              <span className="text-base text-slate-200">{point}</span>
             </div>
-
-            {/* Coluna dos Blocos */}
-            <div className="flex flex-col gap-4">
-              {painPoints.map(({ icon: Icon, text }, index) => (
-                <div
-                  key={`step-${index}`}
-                  className="
-                    group relative flex items-center gap-4 rounded-2xl border border-slate-800 bg-slate-900/70
-                    p-6 transition-all duration-200 ease-out
-                    hover:-translate-y-0.5 hover:border-slate-700 hover:shadow-lg hover:shadow-blue-500/10
-                    md:h-28
-                  "
-                >
-                  <Icon className="h-6 w-6 flex-shrink-0 text-blue-400" aria-hidden="true" />
-                  <p className="text-base text-slate-300 sm:text-lg">
-                    <span className="font-semibold text-slate-100">{text}</span>
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
+          ))}
         </div>
 
-        <div className="mt-12 flex w-full max-w-md flex-col items-center gap-4">
+        <div className="mt-12 flex justify-center sm:mt-16">
           <Button
             asChild
-            className="inline-flex w-full items-center justify-center gap-2 rounded-md bg-orange-500 px-6 py-6 text-base font-semibold text-white shadow-lg shadow-orange-500/25 transition-transform hover:scale-[1.02] sm:w-auto"
-            aria-label="Quero resolver isso agora"
+            className="h-auto rounded-md bg-blue-600 px-5 py-3 text-lg font-semibold text-white shadow-lg transition-all duration-300 hover:bg-blue-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 active:scale-[0.98] sm:h-18 sm:px-9 sm:py-0 sm:text-2xl"
           >
             <Link
               href="/form"
               id="cta-pain-points"
               data-cta="primary"
               data-track="true"
+              className="text-center leading-tight"
             >
-              Quero resolver isso agora
+              <span className="hidden sm:inline">Quero agendar uma demonstração</span>
+              <span className="sm:hidden">
+                Quero agendar
+                <br />
+                uma demonstração
+              </span>
             </Link>
           </Button>
         </div>
