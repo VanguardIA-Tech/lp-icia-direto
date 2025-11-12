@@ -18,7 +18,10 @@ export function HeroSection() {
         className="absolute bottom-[-8%] right-[-12%] h-[80vw] w-[80vw] rounded-full bg-[#FF7A18]/[0.20] blur-[140px] lg:h-[60rem] lg:w-[60rem]"
       />
 
-      <div className="relative z-10 mx-auto h-full w-full max-w-7xl px-6 py-14 sm:py-20 lg:grid lg:grid-cols-12 lg:items-center lg:gap-10 lg:px-8">
+      {/* Em mobile: flex-col + justify-between para grudar a imagem no fundo.
+          Em desktop (lg+): grid com 2 colunas; alinhamento final para a coluna da imagem. */}
+      <div className="relative z-10 mx-auto h-full w-full max-w-7xl px-6 py-14 sm:py-20 flex min-h-full flex-col justify-between lg:grid lg:min-h-full lg:grid-cols-12 lg:items-end lg:gap-10 lg:px-8">
+        {/* Coluna esquerda (texto) */}
         <div className="flex flex-col gap-5 text-center sm:text-left lg:col-span-7">
           <h1 className="mx-auto max-w-[560px] text-3xl font-extrabold leading-tight tracking-tight sm:mx-0 sm:text-4xl md:text-5xl lg:text-[44px]">
             Transforme sua operação com{" "}
@@ -49,6 +52,7 @@ export function HeroSection() {
           </div>
         </div>
 
+        {/* Coluna direita (imagem) - sempre alinhada ao fundo */}
         <div className="mt-10 flex justify-center self-end lg:col-span-5 lg:mt-0 lg:h-full lg:items-end lg:justify-end">
           <img
             src="/jorge3.webp"
