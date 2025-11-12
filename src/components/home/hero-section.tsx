@@ -18,23 +18,23 @@ export function HeroSection() {
         className="absolute bottom-[-8%] right-[-12%] h-[80vw] w-[80vw] rounded-full bg-[#FF7A18]/[0.20] blur-[140px] lg:h-[60rem] lg:w-[60rem]"
       />
 
-      {/* Em mobile: flex-col + justify-between para grudar a imagem no fundo.
-          Em desktop (lg+): grid com 2 colunas; alinhamento final para a coluna da imagem. */}
-      <div className="relative z-10 mx-auto h-full w-full max-w-7xl px-6 py-14 sm:py-20 flex min-h-full flex-col justify-between lg:grid lg:min-h-full lg:grid-cols-12 lg:items-end lg:gap-10 lg:px-8">
+      {/* Em mobile: flex-col + justify-between para colar a imagem no fundo.
+         Em desktop (lg+): grid com 2 colunas e alinhamento inferior. */}
+      <div className="relative z-10 mx-auto h-full w-full max-w-7xl px-6 pt-14 pb-0 sm:pt-20 sm:pb-0 flex min-h-full flex-col justify-between lg:grid lg:min-h-full lg:grid-cols-12 lg:items-end lg:gap-10 lg:px-8">
         {/* Coluna esquerda (texto) */}
         <div className="flex flex-col gap-5 text-center sm:text-left lg:col-span-7">
           <h1 className="mx-auto max-w-[560px] text-3xl font-extrabold leading-tight tracking-tight sm:mx-0 sm:text-4xl md:text-5xl lg:text-[44px]">
             Transforme sua operação com{" "}
-            <span className="text-orange-400">
-              sistemas personalizados de IA
-            </span>{" "}
-            e automação integrados à sua realidade.
+            <span className="text-orange-400">sistemas personalizados de IA</span> e automação
+            integrados à sua realidade.
             <span className="mt-2 block font-semibold text-orange-400">
               Tudo feito para atender o seu negócio.
             </span>
           </h1>
           <p className="mx-auto max-w-[600px] text-base text-slate-200 sm:mx-0 sm:text-lg">
-            O Programa ICIA (Inteligência Corporativa Integrada com Automação) é a aceleração que redesenha processos, integra pessoas e instala cultura de eficiência com IA. Sem precisar trocar seus sistemas atuais nem contratar um monte de gente com altos salários.
+            O Programa ICIA (Inteligência Corporativa Integrada com Automação) é a aceleração que
+            redesenha processos, integra pessoas e instala cultura de eficiência com IA. Sem precisar
+            trocar seus sistemas atuais nem contratar um monte de gente com altos salários.
           </p>
 
           <div className="flex flex-col items-center gap-3 sm:items-start">
@@ -52,12 +52,12 @@ export function HeroSection() {
           </div>
         </div>
 
-        {/* Coluna direita (imagem) - sempre alinhada ao fundo */}
+        {/* Coluna direita (imagem) - sempre colada no fundo */}
         <div className="mt-10 flex justify-center self-end lg:col-span-5 lg:mt-0 lg:h-full lg:items-end lg:justify-end">
           <img
             src="/jorge3.webp"
             alt="Retrato de Jorge Auad"
-            className="h-auto max-h-[50vh] w-auto max-w-full self-end object-contain object-bottom lg:max-h-none"
+            className="h-auto w-auto max-w-full self-end object-contain object-bottom lg:max-h-none"
           />
         </div>
       </div>
