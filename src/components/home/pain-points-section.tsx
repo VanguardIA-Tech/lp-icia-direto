@@ -48,7 +48,7 @@ export function PainPointsSection() {
               id="cta-pain-points"
               data-cta="primary"
               data-track="true"
-              className="text-center leading-tight py-3"
+              className="text-center leading-tight py-7"
             >
               <span className="hidden sm:inline">Quero agendar uma demonstração</span>
               <span className="sm:hidden">
