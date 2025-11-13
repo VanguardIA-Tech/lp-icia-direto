@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { ChevronDown } from "lucide-react";
 
 export function HeroSection() {
   return (
@@ -58,6 +59,23 @@ export function HeroSection() {
             className="h-auto max-w-full max-h-[45vh] sm:max-h-[360px] md:max-h-[400px] lg:h-full lg:max-h-[460px] xl:max-h-[520px] object-contain object-bottom"
           />
         </div>
+      </div>
+
+      {/* Seta de rolagem (pulsante e suave) */}
+      <div className="pointer-events-none absolute inset-x-0 bottom-4 z-20 flex justify-center lg:bottom-6">
+        <a
+          href="#conteudo"
+          aria-label="Role para ver mais"
+          className="pointer-events-auto inline-flex h-11 w-11 items-center justify-center rounded-full bg-white/5 text-slate-200 ring-1 ring-white/10 backdrop-blur-sm transition-colors hover:bg-white/10 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
+          id="cta-scroll-arrow"
+          data-track="true"
+        >
+          <ChevronDown
+            className="h-6 w-6 animate-bounce"
+            style={{ animationDuration: "1.8s" }}
+            aria-hidden="true"
+          />
+        </a>
       </div>
     </section>
   );

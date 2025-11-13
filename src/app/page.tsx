@@ -20,13 +20,13 @@ export default function Home() {
   return (
     <div className="bg-slate-950 text-slate-100">
       {/* Dobra inicial: Banner + Hero */}
-      <div className="flex min-h-0 flex-col lg:h-[90vh]">
+      <div className="flex min-h-0 flex-col lg:h-screen">
         <TopBanner />
         {/* Hero preenche o restante em telas grandes */}
         <HeroSection />
       </div>
 
-      <main className="flex flex-col">
+      <main className="flex flex-col" id="conteudo">
         <PainPointsSection />
         <SelectionCriteriaSection />
         <TailoredSolutionSection />
