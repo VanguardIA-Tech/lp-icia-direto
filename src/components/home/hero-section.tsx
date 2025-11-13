@@ -54,7 +54,7 @@ export function HeroSection() {
         {/* Coluna direita (Imagem) */}
         <div className="mt-auto flex justify-center lg:col-span-5 lg:mt-0 lg:h-full lg:items-end lg:justify-end">
           <img
-            src="/jorge3.webp"
+            src="/jorge6.webp"
             alt="Retrato de Jorge Auad"
             className="h-auto max-w-full max-h-[45vh] sm:max-h-[360px] md:max-h-[400px] lg:h-full lg:max-h-[460px] xl:max-h-[520px] object-contain object-bottom"
           />
