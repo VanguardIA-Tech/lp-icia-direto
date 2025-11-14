@@ -1,8 +1,21 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { ChevronDown } from "lucide-react";
 
 export function HeroSection() {
+  const handleScrollToContent = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const target = document.getElementById("conteudo");
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+    } else {
+      // fallback: smooth scroll 1 viewport height
+      window.scrollTo({ top: window.innerHeight, behavior: "smooth" });
+    }
+  };
+
   return (
     <section className="relative flex flex-1 min-h-0 overflow-hidden bg-[#0B1220] text-white">
       {/* Aurora Mesh Blobs */}
@@ -69,6 +82,7 @@ export function HeroSection() {
           className="pointer-events-auto inline-flex h-11 w-11 items-center justify-center rounded-full bg-white/5 text-slate-200 ring-1 ring-white/10 backdrop-blur-sm transition-colors hover:bg-white/10 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
           id="cta-scroll-arrow"
           data-track="true"
+          onClick={handleScrollToContent}
         >
           <ChevronDown
             className="h-6 w-6 animate-bounce"
