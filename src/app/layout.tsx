@@ -8,6 +8,7 @@ import { ClientProvider } from "@/components/ClientProvider";
 import ClarityRouteTags from "@/components/ClarityRouteTags";
 import ClickTracker from "@/components/ClickTracker";
 import { UtmCollector } from "@/components/UtmCollector";
+import { seoConfig } from "@/config/seo-config";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -20,9 +21,52 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "VanguardIA — Eficiência Inteligente para Empresas",
-  description:
-    "Programa ICIA da VanguardIA: IA e automação sob medida para empresas de 30 a 1000 colaboradores.",
+  metadataBase: new URL(seoConfig.site.url),
+  title: {
+    default: seoConfig.site.title,
+    template: `%s | ${seoConfig.site.name}`,
+  },
+  description: seoConfig.site.description,
+  keywords: seoConfig.seo.keywords,
+  authors: [{ name: seoConfig.company.name }],
+  creator: seoConfig.company.name,
+  publisher: seoConfig.company.name,
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  openGraph: {
+    type: "website",
+    locale: seoConfig.site.locale,
+    url: seoConfig.site.url,
+    title: seoConfig.site.title,
+    description: seoConfig.site.description,
+    siteName: seoConfig.site.name,
+    images: [
+      {
+        url: seoConfig.seo.ogImage,
+        width: 1200,
+        height: 630,
+        alt: `${seoConfig.site.name} - Eficiência Inteligente para Empresas`,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: seoConfig.site.title,
+    description: seoConfig.site.description,
+    images: [seoConfig.seo.ogImage],
+  },
+  alternates: {
+    canonical: "/",
+  },
   icons: {
     icon: [
       // Ícones para tema claro (logo escuro)
@@ -52,9 +96,60 @@ export default function RootLayout({
 }>) {
   const clarityId = process.env.NEXT_PUBLIC_CLARITY_ID;
 
+  // JSON-LD Schemas para dados estruturados
+  const organizationSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: seoConfig.company.name,
+    legalName: seoConfig.company.legalName,
+    url: seoConfig.site.url,
+    logo: `${seoConfig.site.url}${seoConfig.seo.logo}`,
+    description: seoConfig.company.description,
+    email: seoConfig.company.email,
+    telephone: seoConfig.company.phone,
+    address: {
+      "@type": "PostalAddress",
+      addressCountry: "BR",
+      addressLocality: "São Paulo",
+    },
+    sameAs: [
+      seoConfig.seo.social.linkedin,
+      seoConfig.seo.social.instagram,
+      seoConfig.seo.social.youtube,
+    ],
+  };
+
+  const websiteSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: seoConfig.site.name,
+    url: seoConfig.site.url,
+    description: seoConfig.site.description,
+    inLanguage: seoConfig.site.language,
+    publisher: {
+      "@type": "Organization",
+      name: seoConfig.company.name,
+      logo: {
+        "@type": "ImageObject",
+        url: `${seoConfig.site.url}${seoConfig.seo.logo}`,
+      },
+    },
+  };
+
   return (
     <html lang="pt-BR">
       <head>
+        {/* JSON-LD Schemas */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+        />
+
+        {/* Microsoft Clarity */}
         {clarityId ? (
           <Script
             id="ms-clarity"

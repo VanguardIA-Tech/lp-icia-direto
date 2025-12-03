@@ -1,5 +1,4 @@
-"use client";
-
+import type { Metadata } from "next";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { TopBanner } from "@/components/home/top-banner";
@@ -12,6 +11,25 @@ import { LeaderSection } from "@/components/home/leader-section";
 import { SiteFooter } from "@/components/home/site-footer";
 import { DiagnosisSection } from "@/components/home/diagnosis-section";
 import { MethodSection } from "@/components/home/method-section";
+import { seoConfig } from "@/config/seo-config";
+
+export const metadata: Metadata = {
+  title: seoConfig.pages.home.title,
+  description: seoConfig.pages.home.description,
+  keywords: seoConfig.pages.home.keywords,
+  openGraph: {
+    title: seoConfig.pages.home.title,
+    description: seoConfig.pages.home.description,
+    url: `${seoConfig.site.url}${seoConfig.pages.home.path}`,
+  },
+  twitter: {
+    title: seoConfig.pages.home.title,
+    description: seoConfig.pages.home.description,
+  },
+  alternates: {
+    canonical: seoConfig.pages.home.path,
+  },
+};
 
 const floatingCTAClasses =
   "fixed bottom-6 left-6 right-6 sm:left-auto sm:w-auto z-50 shadow-xl shadow-orange-500/20 transition hover:scale-[1.02]";
