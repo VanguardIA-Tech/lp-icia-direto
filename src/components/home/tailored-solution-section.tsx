@@ -114,7 +114,7 @@ export function TailoredSolutionSection() {
               <Link
                 href="/form"
                 id="cta-tailored-solution"
-                data-cta="primary"
+                data-cta="tailored-solution:iniciar-funil-diagnostico"
                 data-track="true"
               >
                 Quero entender o método

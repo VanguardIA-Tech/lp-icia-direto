@@ -66,6 +66,7 @@ export default function RootLayout({
                     t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
                     y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
                 })(window, document, "clarity", "script", "${clarityId}");
+                window.clarity('consentv2', { ad_Storage: 'granted', analytics_Storage: 'granted' });
               `,
             }}
           />
@@ -73,6 +74,7 @@ export default function RootLayout({
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background text-foreground`}
+        data-clarity-unmask="true"
       >
         <ClientProvider />
         <Suspense fallback={null}>

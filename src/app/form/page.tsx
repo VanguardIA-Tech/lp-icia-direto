@@ -9,6 +9,7 @@ import { ArrowRight, Loader2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useRouter } from "next/navigation";
 import { useFormTelemetry } from "@/components/FormObserver";
+import { safeEvent, setTag } from "@/lib/observability";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -82,6 +83,7 @@ export default function FormPage() {
   const handlePrevStep = () => setStep(1);
 
   const onSubmit = async (values: FormValues) => {
+    safeEvent("form:submit_attempt");
     const webhookUrl = "https://automation.infra.vanguardia.cloud/webhook/funil-icia";
     
     let utms = {};
@@ -112,6 +114,8 @@ export default function FormPage() {
       if (!response.ok) {
         const errorBody = await response.text();
         console.error("Webhook response error:", errorBody);
+        setTag("form_http_status", String(response.status));
+        safeEvent("form:submit_error");
         throw new Error(`HTTP error! status: ${response.status}`);
       }
 
@@ -146,6 +150,12 @@ export default function FormPage() {
     validateStep1();
   }, [watchedStep1Values]);
 
+  // Atualiza tag de etapa atual e emite evento de view por etapa
+  useEffect(() => {
+    setTag("form_current_step", String(step));
+    safeEvent(`form:step_${step}_view`);
+  }, [step]);
+
   return (
     <main className="min-h-screen bg-slate-950 text-slate-100">
       <div className="mx-auto w-full max-w-3xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
@@ -173,7 +183,7 @@ export default function FormPage() {
                 {step === 1 ? (
                   <div></div>
                 ) : (
-                  <Button type="button" variant="outline" onClick={handlePrevStep} className="h-10 border-slate-600 bg-transparent px-4 text-slate-200 hover:bg-slate-800 hover:text-white" id="btn-form-back" data-track="true">
+                  <Button type="button" variant="outline" onClick={() => { safeEvent("form:back_click:step_2"); handlePrevStep(); safeEvent("form:back_success:from_2_to_1"); }} className="h-10 border-slate-600 bg-transparent px-4 text-slate-200 hover:bg-slate-800 hover:text-white" id="btn-form-back" data-track="true">
                     Voltar
                   </Button>
                 )}
@@ -181,7 +191,7 @@ export default function FormPage() {
                 {step === 1 && (
                   <Button
                     type="button"
-                    onClick={handleNextStep}
+                    onClick={() => { safeEvent("form:next_click:step_1"); handleNextStep(); safeEvent("form:next_success:from_1_to_2"); }}
                     disabled={!isStep1Valid}
                     className={cn(
                       "h-10 px-4 text-base font-semibold text-white transition-colors",
@@ -299,6 +309,7 @@ export default function FormPage() {
                           id="btn-form-submit"
                           data-cta="lead"
                           data-track="true"
+                          onClick={() => safeEvent("form:submit_click")}
                         >
                           {formState.isSubmitting && <Loader2 className="mr-2 h-4 w-4 animate-spin" aria-hidden="true" />}
                           Receber meu Diagnóstico de Eficiência

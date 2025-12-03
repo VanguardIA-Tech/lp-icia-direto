@@ -44,6 +44,7 @@ export function SiteFooter() {
                   className="rounded-md p-2 text-slate-400 transition-colors hover:text-blue-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
                   data-track="true"
                   role="listitem"
+                  data-cta={`footer:abrir-link-${social.name.toLowerCase()}`}
                 >
                   <social.icon className="h-5 w-5" aria-hidden="true" />
                 </a>

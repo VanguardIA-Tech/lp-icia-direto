@@ -43,12 +43,12 @@ export function PainPointsSection() {
             asChild
             className="h-auto rounded-md bg-blue-600 px-5 py-3 text-lg font-semibold text-white shadow-lg transition-all duration-300 hover:bg-blue-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 active:scale-[0.98] sm:h-18 sm:px-9 sm:py-4 sm:text-2xl"
           >
-            <Link
-              href="/form"
-              id="cta-pain-points"
-              data-cta="primary"
-              data-track="true"
-              className="text-center leading-tight"
+              <Link
+                href="/form"
+                id="cta-pain-points"
+                data-cta="pain-points:iniciar-funil-diagnostico"
+                data-track="true"
+                className="text-center leading-tight"
             >
               <span className="hidden sm:inline">Quero agendar uma demonstração</span>
               <span className="sm:hidden">

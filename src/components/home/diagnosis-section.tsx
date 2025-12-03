@@ -77,7 +77,7 @@ export function DiagnosisSection() {
             <Link
               href="/form"
               id="cta-diagnosis"
-              data-cta="primary"
+              data-cta="diagnosis:iniciar-funil-diagnostico"
               data-track="true"
             >
               Agendar meu Diagnóstico ICIA

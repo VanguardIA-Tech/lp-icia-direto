@@ -8,6 +8,13 @@ Padronizar Smart Events para cliques em botões/links por página do funil e (op
 - click:any_button:form
 - click:any_button:thanks
 - (opcional) form:submit_success (API event)
+  
+## Eventos custom já emitidos no código
+- `click:/<pathname>:<label>` (via ClickTracker, respeita `data-cta` e `data-track="false"`)
+- `form:step_1_view`, `form:step_2_view`
+- `form:next_click:step_1` → `form:next_success:from_1_to_2`
+- `form:back_click:step_2` → `form:back_success:from_2_to_1`
+- `form:submit_click` → `form:submit_attempt` → (`form:submit_success` | `form:submit_error`)
 
 ## Seletores base
 - Universal: `button, [role="button"], a, input[type="submit"], *[data-cta]`

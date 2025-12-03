@@ -11,6 +11,15 @@ Padronizar e documentar a criação de funis de conversão no Microsoft Clarity 
   - `Funnel • LP→Form→Obrigado (Variant A)`
   - `Funnel • LP→Form→Obrigado (Variant B)`
 
+## Eventos & Tags emitidos (código)
+- **Eventos de página:** `view:lp`, `view:form`, `view:thanks` (em cada rota).
+- **Eventos de formulário:**
+  - `form:step_1_view`, `form:step_2_view` (por etapa visualizada)
+  - `form:next_click:step_1` → `form:next_success:from_1_to_2`
+  - `form:back_click:step_2` → `form:back_success:from_2_to_1`
+  - `form:submit_click` → `form:submit_attempt` → (`form:submit_success` | `form:submit_error`)
+- **Tags persistentes:** `page_type`, `variant`, `utm_source|medium|campaign|term|content`, `form_current_step`, `form_http_status` (em erros).
+
 ## Passo a passo na UI do Clarity
 1. No painel do Clarity, vá para **Settings** › **Funnels** › **New**.
 2. Adicione as seguintes etapas, usando o tipo "Page visit" e filtrando por Tag:

@@ -45,7 +45,7 @@ export default function Home() {
         <Link
           href="/form"
           id="cta-floating"
-          data-cta="lead"
+          data-cta="floating:iniciar-funil-diagnostico"
           data-track="true"
         >
           Agendar Diagnóstico de Eficiência com IA

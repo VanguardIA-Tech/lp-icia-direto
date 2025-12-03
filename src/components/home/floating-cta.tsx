@@ -31,7 +31,7 @@ export function FloatingCta() {
           <Link
             href="/form"
             id="cta-floating"
-            data-cta="lead"
+            data-cta="floating:iniciar-funil-diagnostico"
             data-track="true"
           >
             Quero meu Diagnóstico de Eficiência com IA
