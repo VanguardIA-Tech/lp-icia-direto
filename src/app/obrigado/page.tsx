@@ -30,9 +30,9 @@ const cases = [
 ];
 
 const socialLinks = [
-  { name: "LinkedIn", href: "#", icon: Linkedin },
-  { name: "Instagram", href: "#", icon: Instagram },
-  { name: "YouTube", href: "#", icon: Youtube },
+  { name: "LinkedIn", href: "https://br.linkedin.com/company/grupovanguardiabr", icon: Linkedin },
+  { name: "Instagram", href: "https://www.instagram.com/grupovanguard.ia/", icon: Instagram },
+  { name: "YouTube", href: "https://www.youtube.com/@VanguardiaGrupo", icon: Youtube },
 ];
 
 export default function ObrigadoPage() {
