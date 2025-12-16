@@ -5,17 +5,17 @@ const successStories = [
   {
     title: "Rede Mais Saúde",
     result: "Redução de 25 dias para 3 dias em processos internos.",
-    logo: "/logo-rede-mais-saude.png",
+    logo: "https://directus.vanguardiagrupo.com.br/assets/6b5f9231-2c2b-4920-a1a2-c1c317d80dec",
   },
   {
     title: "Do It Hub",
     result: "Operação comercial multiplicada por 3 em 60 dias.",
-    logo: "/logo-doithub.png",
+    logo: "https://directus.vanguardiagrupo.com.br/assets/0fe18dbe-afb5-4e52-9dd2-bba90b72cb1f",
   },
   {
     title: "Silveira Athias",
     result: "Escritório jurídico com cultura de IA instalada em toda a equipe.",
-    logo: "/logo-silveiraathias.png",
+    logo: "https://directus.vanguardiagrupo.com.br/assets/96a23939-eb14-4db5-951b-8b2fdc9702b5",
   },
 ] as const;
 

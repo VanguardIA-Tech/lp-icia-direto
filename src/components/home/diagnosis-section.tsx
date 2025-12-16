@@ -88,7 +88,7 @@ export function DiagnosisSection() {
         {/* Coluna Auxiliar (Painel Visual) */}
         <div className="relative hidden h-full min-h-[320px] overflow-hidden rounded-2xl border border-slate-800 bg-slate-950/50 md:flex">
           <video
-            src="https://res.cloudinary.com/dcg2hwh7x/video/upload/v1762886107/copy_33173A90-9720-4B2B-9894-1BBBE2C26924_shdgu8.webm"
+            src="https://directus.vanguardiagrupo.com.br/assets/14028a85-0ebe-4832-8399-6dfaa3525c43"
             autoPlay
             loop
             muted

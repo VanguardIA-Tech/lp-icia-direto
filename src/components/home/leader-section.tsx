@@ -55,7 +55,7 @@ export function LeaderSection() {
               md:mt-0 md:max-w-full
             ">
               <Image
-                src="/jorge5.webp"
+                src="https://directus.vanguardiagrupo.com.br/assets/0be149ca-21b8-43c1-bdf9-bb785ff0c96d"
                 alt="Jorge Antonio Auad Filho"
                 width={800}
                 height={1000}

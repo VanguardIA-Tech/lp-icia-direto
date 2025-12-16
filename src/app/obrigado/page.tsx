@@ -83,7 +83,7 @@ export default function ObrigadoPage() {
           <footer className="flex w-full flex-col items-center gap-6">
             <Link href="/" aria-label="Página Inicial da VanguardIA">
               <Image
-                src="/vanguardia-logo.png"
+                src="https://directus.vanguardiagrupo.com.br/assets/c6d153f9-dafb-4792-96c4-0dc5a7b3f69e"
                 alt="VanguardIA Logo"
                 width={165}
                 height={35}
