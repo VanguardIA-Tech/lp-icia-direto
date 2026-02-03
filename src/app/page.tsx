@@ -7,6 +7,7 @@ import { PainPointsSection } from "@/components/home/pain-points-section";
 import { SelectionCriteriaSection } from "@/components/home/selection-section";
 import { TailoredSolutionSection } from "@/components/home/tailored-solution-section";
 import { SuccessStoriesSection } from "@/components/home/success-stories-section";
+import { TestimonialsGridSection } from "@/components/home/testimonials-grid-section";
 import { LeaderSection } from "@/components/home/leader-section";
 import { SiteFooter } from "@/components/home/site-footer";
 import { DiagnosisSection } from "@/components/home/diagnosis-section";
@@ -49,6 +50,7 @@ export default function Home() {
         <SelectionCriteriaSection />
         <TailoredSolutionSection />
         <SuccessStoriesSection />
+        <TestimonialsGridSection />
         <LeaderSection />
         <DiagnosisSection />
         <MethodSection />
